@@ -47,7 +47,7 @@ const skillCategories = [
   },
   {
     category: 'Tools & Others',
-    skills: ['Git', 'VS Code', 'Postman', 'Jupyter Notebook', 'Notion', 'Jira', 'ChatGPT', 'Claude AI', 'Gemini'],
+    skills: ['Git', 'VS Code', 'Postman', 'Jupyter Notebook', 'Notion', 'ChatGPT', 'Claude AI', 'Gemini'],
     color: 'bg-gray-500/10 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-800'
   }
 ];
