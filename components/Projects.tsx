@@ -146,7 +146,7 @@ const projects = [
     image: "/Screenshot 2025-08-07 193506.png",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/shahinakt/personal_portfolio_website",
-    demo: "https://shahinakt.dev",
+    demo: "https://www.shahinasareen.tech",
     category: "Web Development"
   }
 ];
