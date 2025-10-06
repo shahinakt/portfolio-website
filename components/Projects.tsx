@@ -7,6 +7,13 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardFooter } from './ui/card';
 import { Badge } from './ui/badge';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from './ui/dialog';
 
 const projects = [
   {
@@ -57,6 +64,7 @@ const projects = [
     tech: ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
     github: "https://github.com/shahinakt/Name_face_identity_finder",
     demo: "https://identity-finder.vercel.app",
+    video: "/identity.mp4",
     category: ["OSINT/Privacy", "AI/ML", "Full Stack", "Computer Vision"]
   },
   {
@@ -67,6 +75,7 @@ const projects = [
     tech: ["React", "Vite", "TensorFlow.js", "MobileNet", "JavaScript"],
     github: "https://github.com/shahinakt/ML_plant_image_classifier",
     demo: "https://ml-classifier-demo.streamlit.app",
+    video: "/plant.mp4",
     category: ["AI/ML", "Full Stack", "Web Development"]
   },
   
@@ -89,6 +98,7 @@ const projects = [
     tech: ["Next.js", "React", "OpenAI API", "Tailwind"],
     github: "https://github.com/shahinakt/AI_project_builder",
     demo: "https://projectbuilder.vercel.app",
+    video: "/pr.mp4",
     category: ["Full Stack", "Web Development", "AI/ML"]
 
   },
@@ -100,6 +110,7 @@ const projects = [
     tech: ["Python", "FastAPI", "NLP", "spaCy", "Streamlit", "PyMuPDF", "PDF Parsing", "React", "Vite", "Tailwind CSS", "Framer Motion", "OpenAI API"],
     github: "https://github.com/shahinakt/AI_resume_ATS_checker",
     demo: "https://ats-checker.streamlit.app",
+    video: "/ats.mp4",
     category: ["Full Stack", "Web Development", "AI/ML", "Career Tools"]
   },
   {
@@ -110,6 +121,7 @@ const projects = [
     tech: ["Python", "pypandoc", "PyPDF2", "Streamlit"],
     github: "https://github.com/shahinakt/universal_file_convertor_pro",
     demo: "https://smart-doc-converter.streamlit.app",
+    video: "/doc.mp4",
     category: ["Full Stack", "Web Development", "Productivity"]
   },
   {
@@ -120,6 +132,7 @@ const projects = [
     tech: ["FastAPI", "Python", "EasyOCR", "Transformers", "PyTorch", "Pillow", "React", "JavaScript", "CSS3", "jsPDF"],
     github: "https://github.com/shahinakt/Image_to_text_generator",
     demo: "https://img-text-ai.streamlit.app",
+    video: "/img.mp4",
     category: ["AI/ML", "Full Stack", "Web Development", "Computer Vision"]
   },
   {
@@ -205,6 +218,8 @@ const titleVariants = {
 
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [currentVideoSrc, setCurrentVideoSrc] = useState<string | null>(null);
 
   const filteredProjects = activeCategory === 'All' 
     ? projects 
@@ -387,14 +402,21 @@ export function Projects() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.7 + index * 0.05 }}
                     >
-                      <Button
-                        size="sm"
-                        className="w-full transition-all duration-300 rounded-lg"
-                        onClick={() => window.open(project.demo, '_blank')}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
+                        <Button
+                          size="sm"
+                          className="w-full transition-all duration-300 rounded-lg"
+                          onClick={() => {
+                            if (project.video) {
+                              setCurrentVideoSrc(project.video);
+                              setIsVideoOpen(true);
+                            } else {
+                              window.open(project.demo, '_blank');
+                            }
+                          }}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Demo
+                        </Button>
                     </motion.div>
                   </CardFooter>
                 </Card>
@@ -402,6 +424,32 @@ export function Projects() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+          {/* Video Dialog */}
+          <Dialog open={isVideoOpen} onOpenChange={(open: boolean) => {
+            setIsVideoOpen(open);
+            if (!open) setCurrentVideoSrc(null);
+          }}>
+            <DialogContent className="max-w-4xl">
+              <DialogTitle>Project Demo</DialogTitle>
+              <DialogDescription>
+                A short demo video of the project.
+              </DialogDescription>
+              {currentVideoSrc ? (
+                <div className="mt-4">
+                  <video
+                    src={currentVideoSrc}
+                    className="w-full rounded-md"
+                    controls
+                    autoPlay
+                  />
+                </div>
+              ) : (
+                <p className="mt-4 text-sm text-muted-foreground">No video available.</p>
+              )}
+              <DialogClose />
+            </DialogContent>
+          </Dialog>
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
