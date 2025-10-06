@@ -166,7 +166,7 @@ const handleResumeDownload = () => {
                     : 'bg-gradient-to-r from-gray-900 via-black to-gray-900 bg-clip-text text-transparent'
                 }`}
               >
-                Shahina KT
+                Shahina Sareen KT
               </motion.h1>
               
               <motion.h2

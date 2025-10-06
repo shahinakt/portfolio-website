@@ -83,7 +83,7 @@ export default function App() {
         <footer className="border-t border-border py-8 bg-muted/30">
           <div className="max-w-6xl mx-auto px-6 text-center">
             <p className="text-muted-foreground">
-              © 2025 Shahina KT. Built with Next.js, Tailwind CSS & TypeScript.
+              © 2025 Shahina Sareen KT. Built with Next.js, Tailwind CSS & TypeScript.
             </p>
           </div>
         </footer>

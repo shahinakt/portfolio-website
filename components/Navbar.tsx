@@ -60,7 +60,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
               whileTap={{ scale: 0.95 }}
             >
               <span className="text-primary text-base lg:text-lg">&lt;/&gt;</span>
-              <span className="text-base lg:text-lg font-medium">Shahina KT</span>
+              <span className="text-base lg:text-lg font-medium">Shahina Sareen KT</span>
             </motion.button>
 
             {/* Desktop Navigation - Right Aligned */}

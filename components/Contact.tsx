@@ -277,8 +277,8 @@ export function Contact() {
                 </CardHeader>
                 <CardContent className="space-y-4 lg:space-y-6">
                   {[
-                    { icon: Mail, label: 'Email', value: 'shahinasareen@gmail.com'},
-                    { icon: Phone, label: 'Phone', value: '+91 8078034006' },
+                    { icon: Mail, label: 'Email', value: 'shahina@shahinasareen.tech'},
+                    { icon: Phone, label: 'Phone', value: '+91 7594006269' },
                     { icon: MapPin, label: 'Location', value: 'Kerala, India' }
                   ].map((contact) => (
                     <motion.div

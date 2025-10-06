@@ -6,17 +6,17 @@ import { Badge } from './ui/badge';
 const skillCategories = [
   {
     category: 'Languages',
-    skills: ['Python', 'Java','JavaScript', 'TypeScript', 'C', 'SQL'],
+    skills: ['Python', 'Java','JavaScript', 'TypeScript', 'C', 'SQL','Kotlin'],
     color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800'
   },
   {
     category: 'Frontend',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3', 'Framer Motion'],
+    skills: ['React', 'Next.js', 'Vue.js','Tailwind CSS', 'HTML5', 'CSS3', 'Framer Motion'],
     color: 'bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-200 dark:border-pink-800'
   },
   {
     category: 'Backend',
-    skills: ['Node.js', 'Express.js', 'FastAPI', 'Django', 'REST APIs', 'GraphQL'],
+    skills: ['Node.js', 'Express.js', 'FastAPI', 'Django', 'Flask', 'REST APIs', 'GraphQL'],
     color: 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-200 dark:border-green-800'
   },
   {
@@ -47,7 +47,7 @@ const skillCategories = [
   },
   {
     category: 'Tools & Others',
-    skills: ['Git', 'VS Code', 'Postman', 'Jupyter Notebook', 'Notion', 'ChatGPT', 'Claude AI', 'Gemini'],
+    skills: ['Git', 'VS Code', 'Android Studio', 'Postman', 'Jupyter Notebook', 'Notion', 'ChatGPT', 'Claude AI', 'Gemini'],
     color: 'bg-gray-500/10 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-800'
   }
 ];

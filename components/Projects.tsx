@@ -15,9 +15,9 @@ const projects = [
     description: "A full-stack, real-time system that detects cyber threats, scams, and fake links through AI models and user reports. Features include document/image scam detection, global threat heatmaps, real-time alerting, and a personalized dashboard.",
     image: "/cybersecurity-professional-work.jpg",
     tech: ["FastAPI", "React", "MongoDB", "AI/ML", "Blockchain", "Cloud Hosting"],
-    github: "https://github.com/shahinakt/threatfusion_ai",
+    github: "https://github.com/shahinakt/cyber_threat_intelligence",
     demo: "https://cyber-threat-demo.vercel.app",
-    category: "Cybersecurity"
+    category: ["Full Stack", "Web Development", "AI/ML", "Cybersecurity"]
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const projects = [
     tech: ["Python", "Sklearn", "Pandas", "FastAPI", "React"],
     github: "https://github.com/shahinakt/Early_disease_predictor",
     demo: "https://early-disease-predictor.vercel.app",
-    category: "Healthcare"
+    category: ["Full Stack", "Web Development", "AI/ML", "Healthcare"]
   },
   {
     id: 3,
@@ -37,110 +37,93 @@ const projects = [
     tech: ["Librosa", "MFCC", "Deep Learning", "Solidity", "Ethereum", "FastAPI", "React"],
     github: "https://github.com/shahinakt/Blockchain_based_voice_login",
     demo: "https://voice-login-demo.vercel.app",
-    category: "Blockchain"
+    category: ["Full Stack", "AI/ML", "Blockchain"]
   },
   {
     id: 4,
-    title: "AI-Based CCTV Abuse Detection System",
-    description: "AI surveillance system that analyzes live or recorded CCTV feeds to detect violence, thefts, falls, or crowd surges in real time. Sends automated alerts to authorities via a dashboard.",
+    title: "AI-Based CCTV Multi Detection System",
+    description: "AI surveillance system that analyzes live or recorded CCTV feeds to detect violence, thefts, falls, or Accidents in real time. Sends automated alerts to authorities via a dashboard and mobile app.",
     image: "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
-    tech: ["YOLOv8", "MediaPipe", "OpenCV", "FastAPI", "React"],
-    github: "https://github.com/shahinakt/AI_based_cctv_abuse_detection",
+    tech: ["YOLOv8", "MediaPipe", "OpenCV", "FastAPI", "React", "Firebase", "AWS", "React Native"],
+    github: "https://github.com/shahinakt/AI_based_cctv_multi_detection",
     demo: "https://ai-cctv.vercel.app",
-    category: "Computer Vision"
+    category: ["Full Stack", "AI/ML", "Computer Vision", "Mobile Development", "Cybersecurity"]
   },
   {
     id: 5,
-    title: "Missing Person and Identity Finder",
-    description: "Privacy-focused tool where users upload a selfie or enter their name to check where it appears online. Uses face recognition + web scraping to detect impersonation or identity misuse across platforms.",
+    title: "Name Face Identity Finder",
+    description: "A sophisticated full-stack application that enables users to search for digital footprints and public information using either a person's name or facial recognition technology. Built with modern web technologies and AI-powered face detection capabilities.",
     image: "/4151253.jpg",
-    tech: ["DeepFace", "spaCy", "Transformers", "Puppeteer", "SerpAPI", "FastAPI", "React", "MongoDB"],
-    github: "https://github.com/shahinakt/missing_person_and_identity_finder",
+    tech: ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
+    github: "https://github.com/shahinakt/Name_face_identity_finder",
     demo: "https://identity-finder.vercel.app",
-    category: "OSINT/Privacy"
+    category: ["OSINT/Privacy", "AI/ML", "Full Stack", "Computer Vision"]
   },
   {
     id: 6,
-    title: "ML Image Classifier",
-    description: "Deep learning model for image classification with real-time prediction capabilities and model performance analytics.",
+    title: "ML Plant Image Classifier",
+    description: "Plant Identifier is a machine learning-powered web app that identifies plants from uploaded images using TensorFlow.js + MobileNet. It provides real-time classification with confidence scores, supports dark mode, and features a responsive, fast-loading design built with React, Vite, and Tailwind CSS.",
     image: "/images.jpg",
-    tech: ["Python", "TensorFlow", "OpenCV", "Streamlit"],
-    github: "https://github.com/shahinakt/ML_image_classifier",
+    tech: ["React", "Vite", "TensorFlow.js", "MobileNet", "JavaScript"],
+    github: "https://github.com/shahinakt/ML_plant_image_classifier",
     demo: "https://ml-classifier-demo.streamlit.app",
-    category: "AI/ML"
+    category: ["AI/ML", "Full Stack", "Web Development"]
   },
+  
   {
     id: 7,
-    title: "ML Object Identification System",
-    description: "A machine learning model trained to identify and label multiple real-world objects in images or video streams using real-time processing and bounding boxes.",
-    image: "/close-up-woman-working-digital-monitors.jpg",
-    tech: ["Python", "TensorFlow", "YOLOv5", "OpenCV", "Streamlit"],
-    github: "https://github.com/shahinakt/ML_object_identification_system",
-    demo: "https://object-id-demo.streamlit.app",
-    category: "Computer Vision"
-  },
-  {
-    id: 8,
     title: "Auto Call Rejector with Smart Response",
-    description: "AI-powered mobile automation system that screens calls and auto-responds with 'The number you are dialing is currently unavailable' to blacklisted or low-priority numbers.",
+    description: "Native Android app that automatically screens and rejects calls from blacklisted or low-priority numbers, using Kotlin, Jetpack Compose, and Room (SQLite) for data storage.",
     image: "/woman-using-mobile-while-car.jpg",
-    tech: ["Flutter", "Firebase", "ML Kit", "Android"],
+    tech: ["Kotlin", "Android Studio", "Jetpack Compose", "Room (SQLite)", "Android"],
     github: "https://github.com/shahinakt/Auto_call_rejector_with_smart_response",
     demo: "https://callblocker-demo.vercel.app",
-    category: "Mobile Development"
+    category: ["Mobile Development"]
   },
+  
   {
-    id: 9,
-    title: "Google Maps Advanced Timeline Tracker",
-    description: "Augments Google Maps timeline with AI-based location summaries, activity tracking, and visual analytics.",
-    image: "/2535487.jpg",
-    tech: ["Google Maps API", "React", "Node.js", "MongoDB", "Chart.js"],
-    github: "https://github.com/shahinakt/Google_map_advanced_version",
-    demo: "https://smartmaps.vercel.app",
-    category: "Productivity"
-  },
-  {
-    id: 10,
+    id: 8,
     title: "AI Project Builder",
     description: "No-code platform that auto-generates project ideas and structures based on selected technologies or domains using OpenAI.",
     image: "/person-working-html-computer.jpg",
-    tech: ["Next.js", "TypeScript", "OpenAI API", "Tailwind", "Vercel"],
+    tech: ["Next.js", "React", "OpenAI API", "Tailwind"],
     github: "https://github.com/shahinakt/AI_project_builder",
     demo: "https://projectbuilder.vercel.app",
-    category: "Full Stack"
+    category: ["Full Stack", "Web Development", "AI/ML"]
+
   },
   {
-    id: 11,
+    id: 9,
     title: "AI Resume ATS Checker",
     description: "Resume analyzer that checks for ATS compatibility, highlights gaps, and recommends role-specific improvements.",
     image: "/resume-apply-work-form-concept.jpg",
-    tech: ["Python", "NLP", "Spacy", "Streamlit", "PDF Parsing"],
+    tech: ["Python", "FastAPI", "NLP", "spaCy", "Streamlit", "PyMuPDF", "PDF Parsing", "React", "Vite", "Tailwind CSS", "Framer Motion", "OpenAI API"],
     github: "https://github.com/shahinakt/AI_resume_ATS_checker",
     demo: "https://ats-checker.streamlit.app",
-    category: "Career Tools"
+    category: ["Full Stack", "Web Development", "AI/ML", "Career Tools"]
   },
   {
-    id: 12,
+    id: 10,
     title: "Smart Document Converter",
     description: "Converts PDFs, DOCX, TXT, RTF, ODT, and Markdown with preserved formatting. Supports batch and auto summarization.",
     image: "/2916138.jpg",
     tech: ["Python", "pypandoc", "PyPDF2", "Streamlit"],
-    github: "https://github.com/shahinakt/smart_document_convertor",
+    github: "https://github.com/shahinakt/universal_file_convertor_pro",
     demo: "https://smart-doc-converter.streamlit.app",
-    category: "Productivity"
+    category: ["Full Stack", "Web Development", "Productivity"]
   },
   {
-    id: 13,
+    id: 11,
     title: "Image to Text Generator",
-    description: "Extracts and cleans text from images using OCR and NLP. Supports multiple languages and summary view.",
+    description: "Extracts and cleans text from images using OCR and NLP with GPU acceleration. Supports multiple languages and summary view.",
     image: "/2947690.jpg",
-    tech: ["Python", "Tesseract", "EasyOCR", "Streamlit"],
+    tech: ["FastAPI", "Python", "EasyOCR", "Transformers", "PyTorch", "Pillow", "React", "JavaScript", "CSS3", "jsPDF"],
     github: "https://github.com/shahinakt/Image_to_text_generator",
     demo: "https://img-text-ai.streamlit.app",
-    category: "AI/ML"
+    category: ["AI/ML", "Full Stack", "Web Development", "Computer Vision"]
   },
   {
-    id: 14,
+    id: 12,
     title: "Portfolio Website",
     description: "A modern, responsive portfolio built with Next.js and Tailwind CSS. Features animations, dark mode, project filtering, and mobile-friendly design.",
     image: "/Screenshot 2025-08-07 193506.png",
@@ -225,7 +208,7 @@ export function Projects() {
 
   const filteredProjects = activeCategory === 'All' 
     ? projects 
-    : projects.filter(project => project.category === activeCategory);
+    : projects.filter(project => project.category.includes(activeCategory));
 
   return (
     <section className="py-12 lg:py-20 min-h-screen flex items-center bg-background">

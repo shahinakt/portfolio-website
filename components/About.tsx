@@ -179,7 +179,7 @@ export function About() {
                   className="space-y-3 lg:space-y-4 text-muted-foreground leading-relaxed text-sm lg:text-base"
                 >
                   <motion.p variants={contentVariants}>
-                  I’m Shahina KT, a self-taught full-stack developer and cybersecurity enthusiast currently pursuing a B.Sc. in Computer Science at the University of Calicut. I specialize in building secure, scalable, and intelligent web applications using React, Next.js, Node.js, FastAPI, and MongoDB, with strong hands-on experience across both frontend and backend systems.
+                  I’m Shahina Sareen KT, a self-taught full-stack developer and cybersecurity enthusiast currently pursuing a B.Sc. in Computer Science at the University of Calicut. I specialize in building secure, scalable, and intelligent web applications using React, Next.js, Node.js, FastAPI, and MongoDB, with strong hands-on experience across both frontend and backend systems.
                   </motion.p>
                   <motion.p variants={contentVariants}>
                   My work spans across AI/ML, blockchain integration, and cyber threat intelligence. I’ve built 10+ real-world projects including an AI-powered disease predictor, decentralized voice login system, cyber threat monitoring platform, and facial recognition-based identity finder — all deployed with cloud-native tooling like Docker, Kubernetes, and CI/CD pipelines.
