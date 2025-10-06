@@ -173,7 +173,7 @@ const handleResumeDownload = () => {
                 variants={itemVariants}
                 className="text-xl sm:text-2xl text-muted-foreground"
               >
-                SWE Intern | AI/ML • Cybersecurity • Cloud Computing
+                SWE Intern | AI/ML • Cybersecurity • Full-Stack Dev
               </motion.h2>
             </motion.div>
 
