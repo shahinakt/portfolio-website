@@ -130,17 +130,46 @@ export function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+    try {
+      // Basic client-side validation
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        toast.error('Please fill out all required fields.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Honeypot check (if your form includes a hidden field 'website' to trap bots)
+      // If you add an input named 'website' and it's filled, we'll reject the submission
+      // (no need to include it in the UI; bots will often fill it).
+
+      const resp = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: formData.name, email: formData.email, subject: formData.subject, message: formData.message })
+      });
+
+      const data = await resp.json();
+      if (!resp.ok) {
+        console.error('Contact send failed', data);
+        toast.error(data?.error || 'Failed to send message. Try again later.');
+        setIsSubmitting(false);
+        return;
+      }
+
+  toast.success("Message sent successfully! I'll get back to you soon.");
+  setFormData({ name: '', email: '', subject: '', message: '' });
+  setSubmitted(true);
+    } catch (err) {
+      console.error('Submit error', err);
+      toast.error('Something went wrong. Try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -188,6 +217,20 @@ export function Contact() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
+                  {submitted ? (
+                    <div role="status" aria-live="polite" className="p-4 rounded-md bg-green-600 text-white">
+                      <p className="font-medium">Message submitted — thank you!</p>
+                      <p className="text-sm">I will get back to you soon. If you want to send another message, click the button below.</p>
+                      <div className="mt-3">
+                        <Button
+                          variant="outline"
+                          onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', subject: '', message: '' }); }}
+                        >
+                          Send another
+                        </Button>
+                      </div>
+                    </div>
+                  ) : null}
                   <motion.div 
                     variants={itemVariants}
                     className="grid grid-cols-1 sm:grid-cols-2 gap-4"
