@@ -64,7 +64,7 @@ const projects = [
     tech: ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
     github: "https://github.com/shahinakt/Name_face_identity_finder",
     demo: "https://identity-finder.vercel.app",
-    video: "/identity.mp4",
+    video: "/identityy.mp4",
     category: ["OSINT/Privacy", "AI/ML", "Full Stack", "Computer Vision"]
   },
   {
