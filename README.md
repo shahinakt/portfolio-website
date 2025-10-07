@@ -1,6 +1,6 @@
 # personal_portfolio_website
 
-A personal portfolio website for Shahina KT showcasing projects, skills and contact information. Built with Next.js, Tailwind CSS and TypeScript.
+A personal portfolio website for Shahina Sareen KT showcasing projects, skills and contact information. Built with Next.js, Tailwind CSS and TypeScript.
 
 Live site
 ---------

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { easeInOut } from "framer-motion";
 import { ExternalLink, Github } from 'lucide-react';
@@ -64,7 +64,7 @@ const projects = [
     tech: ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
     github: "https://github.com/shahinakt/Name_face_identity_finder",
     demo: "https://identity-finder.vercel.app",
-    video: "/identityy.mp4",
+  video: "/ídentityy.mp4",
     category: ["OSINT/Privacy", "AI/ML", "Full Stack", "Computer Vision"]
   },
   {
@@ -220,6 +220,9 @@ export function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [currentVideoSrc, setCurrentVideoSrc] = useState<string | null>(null);
+  const [currentVideoPoster, setCurrentVideoPoster] = useState<string | null>(null);
+  const [isVideoLoading, setIsVideoLoading] = useState(false);
+  const preloaded = useRef<Record<string, boolean>>({});
 
   const filteredProjects = activeCategory === 'All' 
     ? projects 
@@ -405,9 +408,23 @@ export function Projects() {
                         <Button
                           size="sm"
                           className="w-full transition-all duration-300 rounded-lg"
+                          onMouseEnter={() => {
+                            // Prefetch metadata for faster startup on hover
+                            if (project.video && !preloaded.current[project.video]) {
+                              const link = document.createElement('link');
+                              link.rel = 'preload';
+                              link.as = 'video';
+                              link.href = project.video;
+                              link.type = 'video/mp4';
+                              document.head.appendChild(link);
+                              preloaded.current[project.video] = true;
+                            }
+                          }}
                           onClick={() => {
                             if (project.video) {
                               setCurrentVideoSrc(project.video);
+                              setCurrentVideoPoster(project.image ?? null);
+                              setIsVideoLoading(true);
                               setIsVideoOpen(true);
                             } else {
                               window.open(project.demo, '_blank');
@@ -436,12 +453,24 @@ export function Projects() {
                 A short demo video of the project.
               </DialogDescription>
               {currentVideoSrc ? (
-                <div className="mt-4">
+                <div className="mt-4 relative">
+                  {isVideoLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-md">
+                      <div className="animate-spin h-8 w-8 border-4 border-white/30 border-t-white rounded-full" />
+                    </div>
+                  )}
                   <video
+                    key={currentVideoSrc}
                     src={currentVideoSrc}
+                    poster={currentVideoPoster ?? undefined}
                     className="w-full rounded-md"
                     controls
                     autoPlay
+                    playsInline
+                    preload="metadata"
+                    onLoadedData={() => setIsVideoLoading(false)}
+                    onPlaying={() => setIsVideoLoading(false)}
+                    onWaiting={() => setIsVideoLoading(true)}
                   />
                 </div>
               ) : (
