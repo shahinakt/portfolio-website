@@ -24,40 +24,30 @@ const projects = [
     tech: ["FastAPI", "React", "MongoDB", "AI/ML", "Blockchain", "Cloud Hosting"],
     github: "https://github.com/shahinakt/cyber_threat_intelligence",
     demo: "https://cyber-threat-demo.vercel.app",
-    category: ["Full Stack", "Web Development", "AI/ML", "Cybersecurity"]
+    category: ["Full Stack", "AI/ML", "Cybersecurity"]
   },
   {
     id: 2,
-    title: "Early Disease Predictor System",
-    description: "An AI-driven healthcare tool that predicts early symptoms of diseases based on user input. Uses ML classification on patient data and symptom patterns for prediction and prevention suggestions.",
+    title: "Disease Predictor with Chatbot Integration",
+    description: "An AI-driven healthcare tool that predicts symptoms of diseases based on user input. Uses ML classification on patient data and symptom patterns for prediction and prevention suggestions.",
     image: "/face-recognition-personal-identification-collage.jpg",
     tech: ["Python", "Sklearn", "Pandas", "FastAPI", "React"],
     github: "https://github.com/shahinakt/Early_disease_predictor",
     demo: "https://early-disease-predictor.vercel.app",
-    category: ["Full Stack", "Web Development", "AI/ML", "Healthcare"]
+    category: ["Full Stack", "AI/ML", "Healthcare"]
   },
   {
     id: 3,
-    title: "Blockchain-Based Voice Login System",
-    description: "A biometric login system where users authenticate using their voice. Extracted voiceprints are hashed and stored securely on the Ethereum blockchain, ensuring tamper-proof authentication.",
-    image: "/10131.jpg",
-    tech: ["Librosa", "MFCC", "Deep Learning", "Solidity", "Ethereum", "FastAPI", "React"],
-    github: "https://github.com/shahinakt/Blockchain_based_voice_login",
-    demo: "https://voice-login-demo.vercel.app",
-    category: ["Full Stack", "AI/ML", "Blockchain"]
-  },
-  {
-    id: 4,
     title: "AI-Based CCTV Multi Detection System",
     description: "AI surveillance system that analyzes live or recorded CCTV feeds to detect violence, thefts, falls, or Accidents in real time. Sends automated alerts to authorities via a dashboard and mobile app.",
     image: "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
     tech: ["YOLOv8", "MediaPipe", "OpenCV", "FastAPI", "React", "Firebase", "AWS", "React Native"],
     github: "https://github.com/shahinakt/AI_based_cctv_multi_detection",
     demo: "https://ai-cctv.vercel.app",
-    category: ["Full Stack", "AI/ML", "Computer Vision", "Mobile Development", "Cybersecurity"]
+    category: ["Full Stack", "AI/ML", "Computer Vision", "Mobile Development", "Cybersecurity", "Blockchain"]
   },
   {
-    id: 5,
+    id: 4,
     title: "Name Face Identity Finder",
     description: "A sophisticated full-stack application that enables users to search for digital footprints and public information using either a person's name or facial recognition technology. Built with modern web technologies and AI-powered face detection capabilities.",
     image: "/4151253.jpg",
@@ -68,7 +58,7 @@ const projects = [
     category: ["OSINT/Privacy", "AI/ML", "Full Stack", "Computer Vision"]
   },
   {
-    id: 6,
+    id: 5,
     title: "ML Plant Image Classifier",
     description: "Plant Identifier is a machine learning-powered web app that identifies plants from uploaded images using TensorFlow.js + MobileNet. It provides real-time classification with confidence scores, supports dark mode, and features a responsive, fast-loading design built with React, Vite, and Tailwind CSS.",
     image: "/images.jpg",
@@ -76,11 +66,11 @@ const projects = [
     github: "https://github.com/shahinakt/ML_plant_image_classifier",
     demo: "https://ml-classifier-demo.streamlit.app",
     video: "/plant.mp4",
-    category: ["AI/ML", "Full Stack", "Web Development"]
+    category: ["AI/ML", "Full Stack"]
   },
   
   {
-    id: 7,
+    id: 6,
     title: "Auto Call Rejector with Smart Response",
     description: "Native Android app that automatically screens and rejects calls from blacklisted or low-priority numbers, using Kotlin, Jetpack Compose, and Room (SQLite) for data storage.",
     image: "/woman-using-mobile-while-car.jpg",
@@ -91,7 +81,7 @@ const projects = [
   },
   
   {
-    id: 8,
+    id: 7,
     title: "AI Project Builder",
     description: "No-code platform that auto-generates project ideas and structures based on selected technologies or domains using OpenAI.",
     image: "/person-working-html-computer.jpg",
@@ -99,11 +89,11 @@ const projects = [
     github: "https://github.com/shahinakt/AI_project_builder",
     demo: "https://projectbuilder.vercel.app",
     video: "/pr.mp4",
-    category: ["Full Stack", "Web Development", "AI/ML"]
+    category: ["Full Stack", "AI/ML"]
 
   },
   {
-    id: 9,
+    id: 8,
     title: "AI Resume ATS Checker",
     description: "Resume analyzer that checks for ATS compatibility, highlights gaps, and recommends role-specific improvements.",
     image: "/resume-apply-work-form-concept.jpg",
@@ -111,10 +101,10 @@ const projects = [
     github: "https://github.com/shahinakt/AI_resume_ATS_checker",
     demo: "https://ats-checker.streamlit.app",
     video: "/ats.mp4",
-    category: ["Full Stack", "Web Development", "AI/ML", "Career Tools"]
+    category: ["Full Stack", "AI/ML", "Career Tools"]
   },
   {
-    id: 10,
+    id: 9,
     title: "Smart Document Converter",
     description: "Converts PDFs, DOCX, TXT, RTF, ODT, and Markdown with preserved formatting. Supports batch and auto summarization.",
     image: "/2916138.jpg",
@@ -122,10 +112,10 @@ const projects = [
     github: "https://github.com/shahinakt/universal_file_convertor_pro",
     demo: "https://smart-doc-converter.streamlit.app",
     video: "/doc.mp4",
-    category: ["Full Stack", "Web Development", "Productivity"]
+    category: ["Full Stack", "Productivity"]
   },
   {
-    id: 11,
+    id: 10,
     title: "Image to Text Generator",
     description: "Extracts and cleans text from images using OCR and NLP with GPU acceleration. Supports multiple languages and summary view.",
     image: "/2947690.jpg",
@@ -133,10 +123,10 @@ const projects = [
     github: "https://github.com/shahinakt/Image_to_text_generator",
     demo: "https://img-text-ai.streamlit.app",
     video: "/img.mp4",
-    category: ["AI/ML", "Full Stack", "Web Development", "Computer Vision"]
+    category: ["AI/ML", "Full Stack", "Computer Vision"]
   },
   {
-    id: 12,
+    id: 11,
     title: "Portfolio Website",
     description: "A modern, responsive portfolio built with Next.js and Tailwind CSS. Features animations, dark mode, project filtering, and mobile-friendly design.",
     image: "/Screenshot 2025-08-07 193506.png",
