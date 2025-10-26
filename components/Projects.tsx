@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { easeInOut } from "framer-motion";
 import { ExternalLink, Github } from 'lucide-react';
@@ -213,12 +213,48 @@ const titleVariants = {
 };
 
 export function Projects() {
+  // Normalize asset paths coming from the projects list.
+  // Ensures a leading slash and proper URI-encoding for filenames that
+  // include non-ASCII characters (e.g. ídentityy.mp4) and leaves
+  // full http(s) URLs untouched.
+  const normalizeAssetPath = (p?: string | null) => {
+    if (!p) return '';
+    if (/^https?:\/\//i.test(p)) return p; // external URL
+    // remove accidental leading slashes then re-add single leading slash
+    const cleaned = p.replace(/^\/+/, '');
+    return '/' + encodeURI(cleaned);
+  };
+
   const [activeCategory, setActiveCategory] = useState('All');
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [currentVideoSrc, setCurrentVideoSrc] = useState<string | null>(null);
   const [currentVideoPoster, setCurrentVideoPoster] = useState<string | null>(null);
   const [isVideoLoading, setIsVideoLoading] = useState(false);
   const preloaded = useRef<Record<string, boolean>>({});
+
+  // Eagerly preload a small number of demo videos on mount so the first
+  // user interactions feel snappy. We only preload early bytes via a
+  // <link rel="preload"> which prompts the browser to fetch without
+  // immediately starting playback. Adjust `preloadCount` to control
+  // how many videos to warm up.
+  useEffect(() => {
+    const preloadCount = 3;
+    projects.slice(0, preloadCount).forEach((p) => {
+      const candidate = p.video ?? p.demo;
+      if (!candidate) return;
+      const href = normalizeAssetPath(candidate);
+      if (preloaded.current[href]) return;
+      if (/\.(mp4|webm)$/i.test(href)) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'video';
+        link.href = href;
+        link.type = 'video/mp4';
+        document.head.appendChild(link);
+        preloaded.current[href] = true;
+      }
+    });
+  }, []);
 
   const filteredProjects = activeCategory === 'All' 
     ? projects 
@@ -406,24 +442,32 @@ export function Projects() {
                           className="w-full transition-all duration-300 rounded-lg"
                           onMouseEnter={() => {
                             // Prefetch metadata for faster startup on hover
-                            if (project.video && !preloaded.current[project.video]) {
+                            const candidate = project.video ?? project.demo;
+                            const href = normalizeAssetPath(candidate);
+                            if (candidate && !preloaded.current[href]) {
                               const link = document.createElement('link');
                               link.rel = 'preload';
                               link.as = 'video';
-                              link.href = project.video;
+                              link.href = href;
                               link.type = 'video/mp4';
                               document.head.appendChild(link);
-                              preloaded.current[project.video] = true;
+                              preloaded.current[href] = true;
                             }
                           }}
                           onClick={() => {
-                            if (project.video) {
-                              setCurrentVideoSrc(project.video);
+                            const isVideoFile = (s?: string | null) => !!s && /\.(mp4|webm)$/i.test(s);
+                            // prefer explicit project.video, otherwise fallback to project.demo
+                            const candidate = project.video ?? project.demo ?? null;
+                            if (candidate && isVideoFile(candidate)) {
+                              const src = normalizeAssetPath(candidate);
+                              setCurrentVideoSrc(src);
                               setCurrentVideoPoster(project.image ?? null);
                               setIsVideoLoading(true);
                               setIsVideoOpen(true);
-                            } else {
-                              window.open(project.demo, '_blank');
+                            } else if (project.demo) {
+                              // If it's an external URL open as-is, otherwise normalize a local path
+                              const href = /^https?:\/\//i.test(project.demo) ? project.demo : normalizeAssetPath(project.demo);
+                              window.open(href, '_blank');
                             }
                           }}
                         >
@@ -463,7 +507,7 @@ export function Projects() {
                     controls
                     autoPlay
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     onLoadedData={() => setIsVideoLoading(false)}
                     onPlaying={() => setIsVideoLoading(false)}
                   />
