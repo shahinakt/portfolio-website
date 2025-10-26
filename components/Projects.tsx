@@ -15,25 +15,37 @@ import {
   DialogClose,
 } from './ui/dialog';
 
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  github?: string;
+  demo?: string;
+  video?: string;
+  category: string[] | string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
-    title: "Cyber Threat Intelligence Platform",
+    title: "Threat Intelligence With Chatbot Integration",
     description: "A full-stack, real-time system that detects cyber threats, scams, and fake links through AI models and user reports. Features include document/image scam detection, global threat heatmaps, real-time alerting, and a personalized dashboard.",
     image: "/cybersecurity-professional-work.jpg",
     tech: ["FastAPI", "React", "MongoDB", "AI/ML", "Blockchain", "Cloud Hosting"],
-    github: "https://github.com/shahinakt/cyber_threat_intelligence",
-    demo: "https://cyber-threat-demo.vercel.app",
-    category: ["Full Stack", "AI/ML", "Cybersecurity"]
+  github: "https://github.com/shahinakt/cyber_threat_intelligence",
+  demo: "https://cyber-threat-demo.vercel.app",
+  category: ["Full Stack", "AI/ML", "Cybersecurity"]
   },
   {
     id: 2,
-    title: "Disease Predictor with Chatbot Integration",
-    description: "An AI-driven healthcare tool that predicts symptoms of diseases based on user input. Uses ML classification on patient data and symptom patterns for prediction and prevention suggestions.",
-    image: "/face-recognition-personal-identification-collage.jpg",
-    tech: ["Python", "Sklearn", "Pandas", "FastAPI", "React"],
-    github: "https://github.com/shahinakt/Early_disease_predictor",
-    demo: "https://early-disease-predictor.vercel.app",
+  title: "Disease Predictor with Chatbot Integration",
+  description: "An AI-driven healthcare tool that predicts symptoms of diseases based on user input. Uses ML classification on patient data and symptom patterns for prediction and prevention suggestions.",
+  image: "/face-recognition-personal-identification-collage.jpg",
+  tech: ["Python", "Sklearn", "Pandas", "FastAPI", "React"],
+  github: "https://github.com/shahinakt/Early_disease_predictor",
+  demo: "https://early-disease-predictor.vercel.app",
     category: ["Full Stack", "AI/ML", "Healthcare"]
   },
   {
@@ -53,9 +65,8 @@ const projects = [
     image: "/4151253.jpg",
     tech: ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
     github: "https://github.com/shahinakt/Name_face_identity_finder",
-    demo: "https://identity-finder.vercel.app",
-  video: "/ídentityy.mp4",
-    category: ["OSINT/Privacy", "AI/ML", "Full Stack", "Computer Vision"]
+    demo: "ídentityy.mp4",
+    category: ["OSINT/Privacy", "AI/ML", "Computer Vision"]
   },
   {
     id: 5,
@@ -63,10 +74,10 @@ const projects = [
     description: "Plant Identifier is a machine learning-powered web app that identifies plants from uploaded images using TensorFlow.js + MobileNet. It provides real-time classification with confidence scores, supports dark mode, and features a responsive, fast-loading design built with React, Vite, and Tailwind CSS.",
     image: "/images.jpg",
     tech: ["React", "Vite", "TensorFlow.js", "MobileNet", "JavaScript"],
-    github: "https://github.com/shahinakt/ML_plant_image_classifier",
-    demo: "https://ml-classifier-demo.streamlit.app",
-    video: "/plant.mp4",
-    category: ["AI/ML", "Full Stack"]
+  github: "https://github.com/shahinakt/ML_plant_image_classifier",
+  demo: "https://ml-classifier-demo.streamlit.app",
+  video: "/plant.mp4",
+  category: ["AI/ML", "Full Stack"]
   },
   
   {
@@ -76,7 +87,7 @@ const projects = [
     image: "/woman-using-mobile-while-car.jpg",
     tech: ["Kotlin", "Android Studio", "Jetpack Compose", "Room (SQLite)", "Android"],
     github: "https://github.com/shahinakt/Auto_call_rejector_with_smart_response",
-    demo: "https://callblocker-demo.vercel.app",
+    demo: "acr.mp4",
     category: ["Mobile Development"]
   },
   
@@ -86,10 +97,10 @@ const projects = [
     description: "No-code platform that auto-generates project ideas and structures based on selected technologies or domains using OpenAI.",
     image: "/person-working-html-computer.jpg",
     tech: ["Next.js", "React", "OpenAI API", "Tailwind"],
-    github: "https://github.com/shahinakt/AI_project_builder",
-    demo: "https://projectbuilder.vercel.app",
-    video: "/pr.mp4",
-    category: ["Full Stack", "AI/ML"]
+  github: "https://github.com/shahinakt/AI_project_builder",
+  demo: "https://projectbuilder.vercel.app",
+  video: "/pr.mp4",
+  category: ["Full Stack", "AI/ML"]
 
   },
   {
@@ -98,10 +109,10 @@ const projects = [
     description: "Resume analyzer that checks for ATS compatibility, highlights gaps, and recommends role-specific improvements.",
     image: "/resume-apply-work-form-concept.jpg",
     tech: ["Python", "FastAPI", "NLP", "spaCy", "Streamlit", "PyMuPDF", "PDF Parsing", "React", "Vite", "Tailwind CSS", "Framer Motion", "OpenAI API"],
-    github: "https://github.com/shahinakt/AI_resume_ATS_checker",
-    demo: "https://ats-checker.streamlit.app",
-    video: "/ats.mp4",
-    category: ["Full Stack", "AI/ML", "Career Tools"]
+  github: "https://github.com/shahinakt/AI_resume_ATS_checker",
+  demo: "https://ats-checker.streamlit.app",
+  video: "/ats.mp4",
+  category: ["Full Stack", "AI/ML", "Career Tools"]
   },
   {
     id: 9,
@@ -109,10 +120,10 @@ const projects = [
     description: "Converts PDFs, DOCX, TXT, RTF, ODT, and Markdown with preserved formatting. Supports batch and auto summarization.",
     image: "/2916138.jpg",
     tech: ["Python", "pypandoc", "PyPDF2", "Streamlit"],
-    github: "https://github.com/shahinakt/universal_file_convertor_pro",
-    demo: "https://smart-doc-converter.streamlit.app",
-    video: "/doc.mp4",
-    category: ["Full Stack", "Productivity"]
+  github: "https://github.com/shahinakt/universal_file_convertor_pro",
+  demo: "https://smart-doc-converter.streamlit.app",
+  video: "/doc.mp4",
+  category: ["Full Stack", "Productivity"]
   },
   {
     id: 10,
@@ -120,10 +131,10 @@ const projects = [
     description: "Extracts and cleans text from images using OCR and NLP with GPU acceleration. Supports multiple languages and summary view.",
     image: "/2947690.jpg",
     tech: ["FastAPI", "Python", "EasyOCR", "Transformers", "PyTorch", "Pillow", "React", "JavaScript", "CSS3", "jsPDF"],
-    github: "https://github.com/shahinakt/Image_to_text_generator",
-    demo: "https://img-text-ai.streamlit.app",
-    video: "/img.mp4",
-    category: ["AI/ML", "Full Stack", "Computer Vision"]
+  github: "https://github.com/shahinakt/Image_to_text_generator",
+  demo: "https://img-text-ai.streamlit.app",
+  video: "/img.mp4",
+  category: ["AI/ML", "Full Stack", "Computer Vision"]
   },
   {
     id: 11,
@@ -460,7 +471,6 @@ export function Projects() {
                     preload="metadata"
                     onLoadedData={() => setIsVideoLoading(false)}
                     onPlaying={() => setIsVideoLoading(false)}
-                    onWaiting={() => setIsVideoLoading(true)}
                   />
                 </div>
               ) : (
