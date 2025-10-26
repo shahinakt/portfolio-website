@@ -232,11 +232,28 @@ export function Projects() {
   const [isVideoLoading, setIsVideoLoading] = useState(false);
   const preloaded = useRef<Record<string, boolean>>({});
 
-  // Eagerly preload a small number of demo videos on mount so the first
-  // user interactions feel snappy. We only preload early bytes via a
-  // <link rel="preload"> which prompts the browser to fetch without
-  // immediately starting playback. Adjust `preloadCount` to control
-  // how many videos to warm up.
+  // Warm the CDN/cache by requesting the first bytes of a video using a
+  // Range request. This helps servers that support byte ranges to
+  // deliver the initial fragments quickly and reduces time-to-first-frame.
+  const warmCacheRange = (url?: string) => {
+    if (!url) return;
+    try {
+      const nav = (navigator as unknown) as { connection?: { effectiveType?: string; saveData?: boolean } };
+      const effective = nav?.connection?.effectiveType;
+      const saveData = nav?.connection?.saveData;
+      // Avoid warming on slow networks or when the user enabled save-data.
+      if (saveData || (effective && /2g|slow-2g|3g/i.test(effective))) return;
+
+      // Fire-and-forget Range request for the first 200KB.
+      fetch(url, { headers: { Range: 'bytes=0-200000' }, method: 'GET', cache: 'force-cache' })
+        .catch(() => {
+          // ignore failures — warming is best-effort
+        });
+    } catch {
+      // ignore in non-browser environments
+    }
+  };
+  
   useEffect(() => {
     const preloadCount = 3;
     projects.slice(0, preloadCount).forEach((p) => {
@@ -327,7 +344,7 @@ export function Projects() {
                 }}
                 className="group"
               >
-                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-border/60 rounded-xl">
+                <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-border/60 rounded-xl">
                   
                   {/* Image with Overlay Content */}
                   <div className="relative overflow-hidden">
@@ -460,6 +477,9 @@ export function Projects() {
                             const candidate = project.video ?? project.demo ?? null;
                             if (candidate && isVideoFile(candidate)) {
                               const src = normalizeAssetPath(candidate);
+                              // Warm the cache before we set the src so the browser
+                              // can start receiving initial bytes sooner.
+                              warmCacheRange(src);
                               setCurrentVideoSrc(src);
                               setCurrentVideoPoster(project.image ?? null);
                               setIsVideoLoading(true);
@@ -467,6 +487,8 @@ export function Projects() {
                             } else if (project.demo) {
                               // If it's an external URL open as-is, otherwise normalize a local path
                               const href = /^https?:\/\//i.test(project.demo) ? project.demo : normalizeAssetPath(project.demo);
+                              // Try warming cache for local demos too
+                              if (!/^https?:\/\//i.test(href)) warmCacheRange(href);
                               window.open(href, '_blank');
                             }
                           }}
