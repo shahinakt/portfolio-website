@@ -23,6 +23,7 @@ type Project = {
   tech: string[];
   github?: string;
   demo?: string;
+  preview?: string;
   video?: string;
   category: string[] | string;
 }
@@ -145,16 +146,7 @@ const projects: Project[] = [
 
 const categories = ["All", "Full Stack", "Web Development", "AI/ML", "Cybersecurity", "Blockchain", "Computer Vision", "Healthcare", "OSINT/Privacy", "Productivity", "Career Tools", "Mobile Development"];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
+// containerVariants removed (unused) to avoid lint warnings
 
 const cardVariants = {
   hidden: { 
@@ -229,7 +221,8 @@ export function Projects() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [currentVideoSrc, setCurrentVideoSrc] = useState<string | null>(null);
   const [currentVideoPoster, setCurrentVideoPoster] = useState<string | null>(null);
-  const [isVideoLoading, setIsVideoLoading] = useState(false);
+  const [currentFullVideoSrc, setCurrentFullVideoSrc] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const preloaded = useRef<Record<string, boolean>>({});
 
   // Warm the CDN/cache by requesting the first bytes of a video using a
@@ -476,13 +469,25 @@ export function Projects() {
                             // prefer explicit project.video, otherwise fallback to project.demo
                             const candidate = project.video ?? project.demo ?? null;
                             if (candidate && isVideoFile(candidate)) {
-                              const src = normalizeAssetPath(candidate);
-                              // Warm the cache before we set the src so the browser
-                              // can start receiving initial bytes sooner.
-                              warmCacheRange(src);
-                              setCurrentVideoSrc(src);
+                              const fullSrc = normalizeAssetPath(candidate);
+                              // If a low-res preview is provided, open the modal with
+                              // the preview and swap to the full file on play. This
+                              // improves perceived startup when preview files exist.
+                              const previewCandidate = project.preview ?? null;
+                              const previewSrc = previewCandidate ? normalizeAssetPath(previewCandidate) : null;
+
+                              // Warm the cache for the full file so bytes start arriving
+                              // while the preview is shown.
+                              warmCacheRange(fullSrc);
+
+                              if (previewSrc) {
+                                setCurrentFullVideoSrc(fullSrc);
+                                setCurrentVideoSrc(previewSrc);
+                              } else {
+                                setCurrentFullVideoSrc(null);
+                                setCurrentVideoSrc(fullSrc);
+                              }
                               setCurrentVideoPoster(project.image ?? null);
-                              setIsVideoLoading(true);
                               setIsVideoOpen(true);
                             } else if (project.demo) {
                               // If it's an external URL open as-is, otherwise normalize a local path
@@ -516,22 +521,39 @@ export function Projects() {
               </DialogDescription>
               {currentVideoSrc ? (
                 <div className="mt-4 relative">
-                  {isVideoLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-md">
-                      <div className="animate-spin h-8 w-8 border-4 border-white/30 border-t-white rounded-full" />
-                    </div>
-                  )}
                   <video
+                    ref={videoRef}
                     key={currentVideoSrc}
-                    src={currentVideoSrc}
+                    src={currentVideoSrc ?? undefined}
                     poster={currentVideoPoster ?? undefined}
                     className="w-full rounded-md"
                     controls
                     autoPlay
                     playsInline
                     preload="auto"
-                    onLoadedData={() => setIsVideoLoading(false)}
-                    onPlaying={() => setIsVideoLoading(false)}
+                    onWaiting={() => {}}
+                    onLoadedData={() => {}}
+                    onPlaying={() => {}}
+                    onPlay={() => {
+                      // If we had a full-size file to swap in, replace the
+                      // preview with the full src and attempt to continue play.
+                      if (currentFullVideoSrc && currentVideoSrc !== currentFullVideoSrc) {
+                        try {
+                          if (videoRef.current) {
+                            videoRef.current.src = currentFullVideoSrc;
+                            // Force the element to load the new source and resume.
+                            videoRef.current.load();
+                            videoRef.current.play().catch(() => {});
+                          }
+                        } catch {
+                          // ignore
+                        }
+                        setCurrentVideoSrc(currentFullVideoSrc);
+                        setCurrentFullVideoSrc(null);
+                      } else {
+                        // nothing — allow native controls to show loading state
+                      }
+                    }}
                   />
                 </div>
               ) : (
