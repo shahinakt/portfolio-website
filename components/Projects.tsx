@@ -35,8 +35,8 @@ const projects: Project[] = [
     image: "/cybersecurity-professional-work.jpg",
     tech: ["FastAPI", "React", "MongoDB", "AI/ML", "Blockchain", "Cloud Hosting"],
   github: "https://github.com/shahinakt/cyber_threat_intelligence",
-  demo: "https://cyber-threat-demo.vercel.app",
-  category: ["Full Stack", "AI/ML", "Cybersecurity"]
+  demo: "cyber_threat_intel.mp4",
+  category: ["Full Stack", "AI/ML", "Cybersecurity", "Blockchain"]
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const projects: Project[] = [
   image: "/face-recognition-personal-identification-collage.jpg",
   tech: ["Python", "Sklearn", "Pandas", "FastAPI", "React"],
   github: "https://github.com/shahinakt/Early_disease_predictor",
-  demo: "https://early-disease-predictor.vercel.app",
+  demo: "early_disease_predictor.mp4",
     category: ["Full Stack", "AI/ML", "Healthcare"]
   },
   {
@@ -55,7 +55,7 @@ const projects: Project[] = [
     image: "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
     tech: ["YOLOv8", "MediaPipe", "OpenCV", "FastAPI", "React", "Firebase", "AWS", "React Native"],
     github: "https://github.com/shahinakt/AI_based_cctv_multi_detection",
-    demo: "https://ai-cctv.vercel.app",
+    demo: "cctv.mp4",
     category: ["Full Stack", "AI/ML", "Computer Vision", "Mobile Development", "Cybersecurity", "Blockchain"]
   },
   {
@@ -75,9 +75,8 @@ const projects: Project[] = [
     image: "/images.jpg",
     tech: ["React", "Vite", "TensorFlow.js", "MobileNet", "JavaScript"],
   github: "https://github.com/shahinakt/ML_plant_image_classifier",
-  demo: "https://ml-classifier-demo.streamlit.app",
-  video: "/plant.mp4",
-  category: ["AI/ML", "Full Stack"]
+  demo: "/plant.mp4",
+  category: ["AI/ML", "Web Development"]
   },
   
   {
@@ -98,9 +97,8 @@ const projects: Project[] = [
     image: "/person-working-html-computer.jpg",
     tech: ["Next.js", "React", "OpenAI API", "Tailwind"],
   github: "https://github.com/shahinakt/AI_project_builder",
-  demo: "https://projectbuilder.vercel.app",
-  video: "/pr.mp4",
-  category: ["Full Stack", "AI/ML"]
+  demo: "/pr.mp4",
+  category: ["Web Development", "AI/ML"]
 
   },
   {
@@ -110,9 +108,8 @@ const projects: Project[] = [
     image: "/resume-apply-work-form-concept.jpg",
     tech: ["Python", "FastAPI", "NLP", "spaCy", "Streamlit", "PyMuPDF", "PDF Parsing", "React", "Vite", "Tailwind CSS", "Framer Motion", "OpenAI API"],
   github: "https://github.com/shahinakt/AI_resume_ATS_checker",
-  demo: "https://ats-checker.streamlit.app",
-  video: "/ats.mp4",
-  category: ["Full Stack", "AI/ML", "Career Tools"]
+  demo: "/ats.mp4",
+  category: ["Web Development", "AI/ML", "Career Tools"]
   },
   {
     id: 9,
@@ -121,9 +118,8 @@ const projects: Project[] = [
     image: "/2916138.jpg",
     tech: ["Python", "pypandoc", "PyPDF2", "Streamlit"],
   github: "https://github.com/shahinakt/universal_file_convertor_pro",
-  demo: "https://smart-doc-converter.streamlit.app",
-  video: "/doc.mp4",
-  category: ["Full Stack", "Productivity"]
+  demo: "/doc.mp4",
+  category: ["Web Development", "Productivity"]
   },
   {
     id: 10,
@@ -132,9 +128,8 @@ const projects: Project[] = [
     image: "/2947690.jpg",
     tech: ["FastAPI", "Python", "EasyOCR", "Transformers", "PyTorch", "Pillow", "React", "JavaScript", "CSS3", "jsPDF"],
   github: "https://github.com/shahinakt/Image_to_text_generator",
-  demo: "https://img-text-ai.streamlit.app",
-  video: "/img.mp4",
-  category: ["AI/ML", "Full Stack", "Computer Vision"]
+  demo: "/img.mp4",
+  category: ["AI/ML", "Web Development", "Computer Vision"]
   },
   {
     id: 11,
