@@ -37,6 +37,7 @@ const projects: Project[] = [
     tech: ["FastAPI", "React", "MongoDB", "AI/ML", "Blockchain", "Cloud Hosting"],
   github: "https://github.com/shahinakt/cyber_threat_intelligence",
   demo: "cyber_threat_intel.mp4",
+  preview: "/previews/cyber_threat_intel-preview.webm",
   category: ["Full Stack", "AI/ML", "Cybersecurity", "Blockchain"]
   },
   {
@@ -47,6 +48,7 @@ const projects: Project[] = [
   tech: ["Python", "Sklearn", "Pandas", "FastAPI", "React"],
   github: "https://github.com/shahinakt/Early_disease_predictor",
   demo: "early_disease_predictor.mp4",
+  preview: "/previews/early_disease_predictor-preview.webm",
     category: ["Full Stack", "AI/ML", "Healthcare"]
   },
   {
@@ -56,7 +58,8 @@ const projects: Project[] = [
     image: "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
     tech: ["YOLOv8", "MediaPipe", "OpenCV", "FastAPI", "React", "Firebase", "AWS", "React Native"],
     github: "https://github.com/shahinakt/AI_based_cctv_multi_detection",
-    demo: "cctv.mp4",
+  demo: "cctv.mp4",
+  preview: "/previews/cctv-preview.webm",
     category: ["Full Stack", "AI/ML", "Computer Vision", "Mobile Development", "Cybersecurity", "Blockchain"]
   },
   {
@@ -66,7 +69,8 @@ const projects: Project[] = [
     image: "/4151253.jpg",
     tech: ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
     github: "https://github.com/shahinakt/Name_face_identity_finder",
-    demo: "ídentityy.mp4",
+  demo: "ídentityy.mp4",
+  preview: "/previews/ídentityy-preview.webm",
     category: ["OSINT/Privacy", "AI/ML", "Computer Vision"]
   },
   {
@@ -77,6 +81,7 @@ const projects: Project[] = [
     tech: ["React", "Vite", "TensorFlow.js", "MobileNet", "JavaScript"],
   github: "https://github.com/shahinakt/ML_plant_image_classifier",
   demo: "/plant.mp4",
+  preview: "/previews/plant-preview.webm",
   category: ["AI/ML", "Web Development"]
   },
   
@@ -87,7 +92,8 @@ const projects: Project[] = [
     image: "/woman-using-mobile-while-car.jpg",
     tech: ["Kotlin", "Android Studio", "Jetpack Compose", "Room (SQLite)", "Android"],
     github: "https://github.com/shahinakt/Auto_call_rejector_with_smart_response",
-    demo: "acr.mp4",
+  demo: "acr.mp4",
+  preview: "/previews/acr-preview.webm",
     category: ["Mobile Development"]
   },
   
@@ -99,6 +105,7 @@ const projects: Project[] = [
     tech: ["Next.js", "React", "OpenAI API", "Tailwind"],
   github: "https://github.com/shahinakt/AI_project_builder",
   demo: "/pr.mp4",
+  preview: "/previews/pr-preview.webm",
   category: ["Web Development", "AI/ML"]
 
   },
@@ -110,6 +117,7 @@ const projects: Project[] = [
     tech: ["Python", "FastAPI", "NLP", "spaCy", "Streamlit", "PyMuPDF", "PDF Parsing", "React", "Vite", "Tailwind CSS", "Framer Motion", "OpenAI API"],
   github: "https://github.com/shahinakt/AI_resume_ATS_checker",
   demo: "/ats.mp4",
+  preview: "/previews/ats-preview.webm",
   category: ["Web Development", "AI/ML", "Career Tools"]
   },
   {
@@ -120,6 +128,7 @@ const projects: Project[] = [
     tech: ["Python", "pypandoc", "PyPDF2", "Streamlit"],
   github: "https://github.com/shahinakt/universal_file_convertor_pro",
   demo: "/doc.mp4",
+  preview: "/previews/doc-preview.webm",
   category: ["Web Development", "Productivity"]
   },
   {
@@ -130,6 +139,7 @@ const projects: Project[] = [
     tech: ["FastAPI", "Python", "EasyOCR", "Transformers", "PyTorch", "Pillow", "React", "JavaScript", "CSS3", "jsPDF"],
   github: "https://github.com/shahinakt/Image_to_text_generator",
   demo: "/img.mp4",
+  preview: "/previews/img-preview.webm",
   category: ["AI/ML", "Web Development", "Computer Vision"]
   },
   {
@@ -224,6 +234,7 @@ export function Projects() {
   const [currentFullVideoSrc, setCurrentFullVideoSrc] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const preloaded = useRef<Record<string, boolean>>({});
+  const [videoManifest, setVideoManifest] = useState<Record<string, string> | null>(null);
 
   // Warm the CDN/cache by requesting the first bytes of a video using a
   // Range request. This helps servers that support byte ranges to
@@ -248,6 +259,20 @@ export function Projects() {
   };
   
   useEffect(() => {
+    // Try to load an optional videos manifest generated at deploy-time.
+    // The manifest maps local filenames (e.g. "plant.mp4") to CDN URLs.
+    (async () => {
+      try {
+        const resp = await fetch('/videos-manifest.json', { cache: 'no-cache' });
+        if (resp.ok) {
+          const json = await resp.json();
+          setVideoManifest(json);
+        }
+      } catch {
+        // ignore if no manifest is present
+      }
+    })();
+
     const preloadCount = 3;
     projects.slice(0, preloadCount).forEach((p) => {
       const candidate = p.video ?? p.demo;
@@ -464,39 +489,106 @@ export function Projects() {
                               preloaded.current[href] = true;
                             }
                           }}
-                          onClick={() => {
-                            const isVideoFile = (s?: string | null) => !!s && /\.(mp4|webm)$/i.test(s);
-                            // prefer explicit project.video, otherwise fallback to project.demo
-                            const candidate = project.video ?? project.demo ?? null;
-                            if (candidate && isVideoFile(candidate)) {
-                              const fullSrc = normalizeAssetPath(candidate);
-                              // If a low-res preview is provided, open the modal with
-                              // the preview and swap to the full file on play. This
-                              // improves perceived startup when preview files exist.
-                              const previewCandidate = project.preview ?? null;
-                              const previewSrc = previewCandidate ? normalizeAssetPath(previewCandidate) : null;
+                          onClick={async () => {
+                              const isVideoFile = (s?: string | null) => !!s && /\.(mp4|webm)$/i.test(s);
+                              // prefer explicit project.video, otherwise fallback to project.demo
+                              const candidate = project.video ?? project.demo ?? null;
 
-                              // Warm the cache for the full file so bytes start arriving
-                              // while the preview is shown.
-                              warmCacheRange(fullSrc);
+                              // helper to check availability using a tiny range request
+                              const checkAvailable = async (url: string) => {
+                                try {
+                                  // request just the first byte(s) to minimize transfer
+                                  const resp = await fetch(url, { method: 'GET', headers: { Range: 'bytes=0-1' }, cache: 'no-store' });
+                                  return resp && resp.status >= 200 && resp.status < 400;
+                                } catch {
+                                  return false;
+                                }
+                              };
 
-                              if (previewSrc) {
-                                setCurrentFullVideoSrc(fullSrc);
-                                setCurrentVideoSrc(previewSrc);
-                              } else {
+                              if (candidate && isVideoFile(candidate)) {
+                                const fullSrcCandidate = normalizeAssetPath(candidate);
+
+                                // First prefer an entry from the optional videos manifest (deployed CDN URLs)
+                                let resolvedSrc: string | null = null;
+                                try {
+                                  const cleaned = (candidate || '').replace(/^\/+/, '');
+                                  const tryKeys = [cleaned, decodeURIComponent(cleaned)];
+                                  if (videoManifest) {
+                                    for (const k of tryKeys) {
+                                      if (videoManifest[k]) {
+                                        resolvedSrc = videoManifest[k];
+                                        break;
+                                      }
+                                    }
+                                  }
+                                } catch {
+                                  // ignore
+                                }
+
+                                // next try the configured path then optimized fallback
+                                if (!resolvedSrc) {
+                                  if (await checkAvailable(fullSrcCandidate)) {
+                                    resolvedSrc = fullSrcCandidate;
+                                  } else {
+                                    const cleaned = (candidate || '').replace(/^\/+/, '');
+                                    const optimizedCandidate = normalizeAssetPath(`optimized/${cleaned}`);
+                                    if (await checkAvailable(optimizedCandidate)) {
+                                      resolvedSrc = optimizedCandidate;
+                                    }
+                                  }
+                                }
+
+                                // If we couldn't find the actual file, but there is still
+                                // a preview or external demo link, fall back to those.
+                                const previewCandidate = project.preview ?? null;
+                                const previewSrc = previewCandidate ? normalizeAssetPath(previewCandidate) : null;
+
+                                if (resolvedSrc) {
+                                  // Warm the cache for the full file so bytes start arriving
+                                  warmCacheRange(resolvedSrc);
+
+                                  if (previewSrc && previewSrc !== resolvedSrc) {
+                                    setCurrentFullVideoSrc(resolvedSrc);
+                                    setCurrentVideoSrc(previewSrc);
+                                  } else {
+                                    setCurrentFullVideoSrc(null);
+                                    setCurrentVideoSrc(resolvedSrc);
+                                  }
+                                  setCurrentVideoPoster(project.image ?? null);
+                                  setIsVideoOpen(true);
+                                  return;
+                                }
+
+                                // If we reach here, the target video file wasn't accessible.
+                                // If a preview exists, show it. Else if demo is an external URL open it.
+                                if (previewSrc) {
+                                  setCurrentFullVideoSrc(null);
+                                  setCurrentVideoSrc(previewSrc);
+                                  setCurrentVideoPoster(project.image ?? null);
+                                  setIsVideoOpen(true);
+                                  return;
+                                }
+
+                                if (project.demo && /^https?:\/\//i.test(project.demo)) {
+                                  window.open(project.demo, '_blank');
+                                  return;
+                                }
+
+                                // final fallback: show a small inline message by opening the dialog
+                                // with no video so user sees 'No video available.'
                                 setCurrentFullVideoSrc(null);
-                                setCurrentVideoSrc(fullSrc);
+                                setCurrentVideoSrc(null);
+                                setCurrentVideoPoster(null);
+                                setIsVideoOpen(true);
+                                return;
+                              } else if (project.demo) {
+                                // If it's an external URL open as-is, otherwise normalize a local path
+                                const href = /^https?:\/\//i.test(project.demo) ? project.demo : normalizeAssetPath(project.demo);
+                                // Try warming cache for local demos too
+                                if (!/^https?:\/\//i.test(href)) warmCacheRange(href);
+                                window.open(href, '_blank');
                               }
-                              setCurrentVideoPoster(project.image ?? null);
-                              setIsVideoOpen(true);
-                            } else if (project.demo) {
-                              // If it's an external URL open as-is, otherwise normalize a local path
-                              const href = /^https?:\/\//i.test(project.demo) ? project.demo : normalizeAssetPath(project.demo);
-                              // Try warming cache for local demos too
-                              if (!/^https?:\/\//i.test(href)) warmCacheRange(href);
-                              window.open(href, '_blank');
-                            }
-                          }}
+                            }}
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           Demo
