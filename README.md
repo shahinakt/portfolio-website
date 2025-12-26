@@ -7,25 +7,20 @@ Live site
 
 - https://www.shahinasareen.tech
 
-Repository
-----------
-
-- https://github.com/shahinakt/personal_portfolio_website
-
 Quick summary
 -------------
 
-- Framework: Next.js 15 (App Router)
+- Framework: Next.js 15 
 - UI: Tailwind CSS
 - Language: TypeScript + React 19
 - Animations: Framer Motion
 
-Notable dependencies (see `package.json` for full list)
+Notable dependencies 
 - next, react, react-dom
 - tailwindcss, postcss, autoprefixer
 - framer-motion, lucide-react, sonner
 
-Getting started (local)
+Getting started 
 -----------------------
 
 1. Install dependencies:
@@ -46,9 +41,6 @@ npm run dev
 npm run build
 npm start
 ```
-
-Open http://localhost:3000 to view the site locally.
-
 
 License
 -------

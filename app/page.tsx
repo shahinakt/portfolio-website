@@ -15,7 +15,7 @@ export default function App() {
   const handleNavigate = (section: string) => {
     setActiveSection(section);
     
-    // Smooth scroll to the section
+
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ 
@@ -25,7 +25,7 @@ export default function App() {
     }
   };
 
-  // Update active section based on scroll position
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
@@ -44,7 +44,7 @@ export default function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial position
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -54,27 +54,22 @@ export default function App() {
       <div className="min-h-screen bg-background text-foreground">
         <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
         <main>
-          {/* Page 1: Normal background */}
           <div id="hero">
             <Hero onNavigate={handleNavigate} />
           </div>
           
-          {/* Page 2: Light grey background */}
           <div id="about">
             <About />
           </div>
           
-          {/* Page 3: White background */}
           <div id="skills">
             <Skills />
           </div>
           
-          {/* Page 4: Light grey background */}
           <div id="projects">
             <Projects />
           </div>
           
-          {/* Page 5: White background */}
           <div id="contact">
             <Contact />
           </div>

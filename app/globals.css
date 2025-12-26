@@ -131,9 +131,6 @@
   }
 }
 
-/**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
- */
 @layer base {
   :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
     h1 {
@@ -190,26 +187,16 @@ html {
   font-size: var(--font-size);
 }
 
-/* Hide scrollbars globally but keep scrolling functionality
-   - Firefox: `scrollbar-width: none`
-   - IE/Edge: `-ms-overflow-style: none`
-   - WebKit (Chrome/Safari/Edge Chromium): hide the pseudo-element
-   If you want to re-enable the scrollbar later, remove or comment this block. */
 html,
 body,
 * {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* WebKit browsers */
 *::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   background: transparent;
   display: none;
 }
-
-/* If you only want to hide the vertical scrollbar but keep horizontal, use a more specific selector:
-   html, body { scrollbar-width: none; -ms-overflow-style: none; }
-   body::-webkit-scrollbar { width: 0; } */

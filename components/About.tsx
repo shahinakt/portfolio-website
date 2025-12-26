@@ -16,22 +16,22 @@ const roles = [
     description: 'Node.js, Python, MongoDB, REST APIs'
   },
   {
-    title: 'Cybersecurity Specialist',
+    title: 'Cybersecurity (Foundational)',
     icon: Shield,
     description: 'Penetration Testing, MITRE ATT&CK, Secure Coding'
   },
   {
-    title: 'AI & ML Engineer',
+    title: 'AI & ML Practitioner (Foundational)',
     icon: Brain,
-    description: 'LangChain, Transformers, NLP'
+    description: 'Transformers, NLP'
   },
   {
-    title: 'Prompt Engineer',
+    title: 'Prompt Engineer (Applied)',
     icon: PenTool,
     description: 'LLM Prompting, OpenAI API'
   },
   {
-    title: 'SEO Writer',
+    title: 'Technical & SEO Writer',
     icon: Search,
     description: 'Content Strategy, Technical Writing, SEO Optimization'
   }
@@ -59,8 +59,7 @@ const cardVariants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const
+      duration: 0.6
     }
   }
 };
@@ -77,7 +76,6 @@ const contentVariants = {
     scale: 1,
     transition: {
       duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
       delay: 0.3
     }
   }
@@ -92,8 +90,7 @@ const titleVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const
+      duration: 0.6
     }
   }
 };
@@ -182,10 +179,10 @@ export function About() {
                   I’m Shahina Sareen KT, a self-taught full-stack developer and cybersecurity enthusiast currently pursuing a B.Sc. in Computer Science at the University of Calicut. I specialize in building secure, scalable, and intelligent web applications using React, Next.js, Node.js, FastAPI, and MongoDB, with strong hands-on experience across both frontend and backend systems.
                   </motion.p>
                   <motion.p variants={contentVariants}>
-                  My work spans across AI/ML, blockchain integration, and cyber threat intelligence. I’ve built 10+ real-world projects including an AI-powered disease predictor, decentralized voice login system, cyber threat monitoring platform, and facial recognition-based identity finder — all deployed with cloud-native tooling like Docker, Kubernetes, and CI/CD pipelines.
+                  I have built 11+ production-grade projects across AI/ML, cybersecurity, full-stack development, computer vision, and OSINT, focusing on real-world problem solving rather than demos. My work includes threat intelligence platforms with chatbot integration, AI-powered disease prediction, CCTV-based multi-event detection systems, and a face–name identity finder leveraging facial recognition and open-source intelligence.
                   </motion.p>
                   <motion.p variants={contentVariants}>
-                  In the AI space, I’m skilled in machine learning, NLP, LangChain, and prompt engineering, having integrated large language models and built smart automation tools. On the security side, I conduct penetration testing, implement OSINT techniques, and follow frameworks like MITRE ATT&CK for real-world threat mitigation.
+                  I specialize in Python, FastAPI, React, and Next.js, building scalable, cloud-native applications using CI/CD and containerized workflows. My AI experience spans machine learning, NLP, computer vision, and LLM integration with tools like LangChain, Transformers, YOLOv8, TensorFlow, and OpenAI APIs. In cybersecurity, I work on threat intelligence, OSINT-based analysis, scam detection, and security-aware system design aligned with real-world attack patterns.
                   </motion.p>
                   <motion.p variants={contentVariants}>
                   Alongside development, I’m an active technical writer with 60+ articles and 10,000+ claps on Medium, focusing on AI, cybersecurity, and emerging tech trends. I’m currently seeking a Software Engineer Internship where I can contribute to impactful projects while continuing to grow as a developer and innovator.

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { easeInOut } from "framer-motion";
 import { Download, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { useTheme } from './ThemeContext';
@@ -35,8 +34,7 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: easeInOut
+      duration: 0.6
     }
   }
 };
@@ -52,8 +50,7 @@ const buttonVariants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
-      ease: easeInOut
+      duration: 0.5
     }
   }
 };
@@ -77,35 +74,26 @@ const handleResumeDownload = () => {
           className="w-full h-full relative"
         >
         <Image
-          src="/images/image.jpg"  
+          src="/images/image.jpg"
           alt="Neural Network Background"
           fill
           className="object-cover"
           priority
           sizes="100vw"
-          onError={(e) => {
-            console.error('Image failed to load:', e);
-          }}
-          onLoad={() => {
-            console.log('Image loaded successfully');
-          }}
         />
           
-          {/* Enhanced theme-responsive overlay for better line visibility */}
           <div className={`absolute inset-0 transition-all duration-500 ${
             theme === 'dark' 
               ? 'bg-black/30' 
               : 'bg-white/60'
           }`} />
           
-          {/* Additional contrast overlay for neural network visibility */}
           <div className={`absolute inset-0 transition-all duration-500 ${
             theme === 'dark'
               ? 'bg-gradient-to-br from-blue-900/10 via-transparent to-purple-900/10'
               : 'bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50'
           }`} />
           
-          {/* Content readability gradient */}
           <div className={`absolute inset-0 transition-all duration-500 ${
             theme === 'dark'
               ? 'bg-gradient-to-r from-black/50 via-transparent to-black/30'
@@ -114,7 +102,6 @@ const handleResumeDownload = () => {
         </motion.div>
       </div>
 
-      {/* Animated particles overlay for enhanced effect */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(8)].map((_, i) => (
           <motion.div
@@ -142,7 +129,6 @@ const handleResumeDownload = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    {/* Main Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -173,7 +159,7 @@ const handleResumeDownload = () => {
                 variants={itemVariants}
                 className="text-xl sm:text-2xl text-muted-foreground"
               >
-                SWE Intern | AI/ML • Cybersecurity • Full-Stack Dev
+                Full-Stack Dev • AI/ML • Cybersecurity
               </motion.h2>
             </motion.div>
 
@@ -186,9 +172,7 @@ const handleResumeDownload = () => {
               }`}
             >
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                I create innovative digital solutions spanning full-stack development, AI/ML engineering, 
-                cybersecurity, and technical writing. With expertise across multiple domains, 
-                I build scalable applications that drive business growth and user engagement.
+                I build practical digital solutions across full-stack development, foundational AI/ML, basic cybersecurity, and technical writing, with a focus on scalable, user-focused applications. Actively looking for opportunities to learn through real-world experience.
               </p>
             </motion.div>
 

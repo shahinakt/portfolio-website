@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { easeInOut } from "framer-motion";
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardFooter } from './ui/card';
@@ -146,8 +145,6 @@ const projects: Project[] = [
 
 const categories = ["All", "Full Stack", "Web Development", "AI/ML", "Cybersecurity", "Blockchain", "Computer Vision", "Healthcare", "OSINT/Privacy", "Productivity", "Career Tools", "Mobile Development"];
 
-// containerVariants removed (unused) to avoid lint warnings
-
 const cardVariants = {
   hidden: { 
     opacity: 0, 
@@ -159,8 +156,7 @@ const cardVariants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: easeInOut
+      duration: 0.6
     }
   },
   exit: {
@@ -168,8 +164,7 @@ const cardVariants = {
     y: -30,
     scale: 0.9,
     transition: {
-      duration: 0.3,
-      ease: easeInOut
+      duration: 0.3
     }
   }
 };
@@ -198,21 +193,15 @@ const titleVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: easeInOut
+      duration: 0.6
     }
   }
 };
 
 export function Projects() {
-  // Normalize asset paths coming from the projects list.
-  // Ensures a leading slash and proper URI-encoding for filenames that
-  // include non-ASCII characters (e.g. ídentityy.mp4) and leaves
-  // full http(s) URLs untouched.
   const normalizeAssetPath = (p?: string | null) => {
     if (!p) return '';
-    if (/^https?:\/\//i.test(p)) return p; // external URL
-    // remove accidental leading slashes then re-add single leading slash
+    if (/^https?:\/\//i.test(p)) return p;
     const cleaned = p.replace(/^\/+/, '');
     return '/' + encodeURI(cleaned);
   };
@@ -225,26 +214,17 @@ export function Projects() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const preloaded = useRef<Record<string, boolean>>({});
 
-  // Warm the CDN/cache by requesting the first bytes of a video using a
-  // Range request. This helps servers that support byte ranges to
-  // deliver the initial fragments quickly and reduces time-to-first-frame.
   const warmCacheRange = (url?: string) => {
     if (!url) return;
     try {
       const nav = (navigator as unknown) as { connection?: { effectiveType?: string; saveData?: boolean } };
       const effective = nav?.connection?.effectiveType;
       const saveData = nav?.connection?.saveData;
-      // Avoid warming on slow networks or when the user enabled save-data.
       if (saveData || (effective && /2g|slow-2g|3g/i.test(effective))) return;
 
-      // Fire-and-forget Range request for the first 200KB.
       fetch(url, { headers: { Range: 'bytes=0-200000' }, method: 'GET', cache: 'force-cache' })
-        .catch(() => {
-          // ignore failures — warming is best-effort
-        });
-    } catch {
-      // ignore in non-browser environments
-    }
+        .catch(() => {});
+    } catch {}
   };
   
   useEffect(() => {
@@ -351,10 +331,8 @@ export function Projects() {
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                     
-                    {/* Title and Tech Tags Overlay */}
                     <div className="absolute inset-0 p-4 flex flex-col justify-end">
                       
-                      {/* Title */}
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -366,7 +344,6 @@ export function Projects() {
                         </h3>
                       </motion.div>
                       
-                      {/* Tech Tags below Title */}
                       <motion.div 
                         className="flex flex-wrap gap-1.5"
                         initial={{ opacity: 0, y: 20 }}
@@ -406,7 +383,6 @@ export function Projects() {
                     </div>
                   </div>
 
-                  {/* Card Content - Description */}
                   <CardContent className="p-5">
                     <motion.p 
                       className="text-sm text-muted-foreground leading-relaxed line-clamp-3"
@@ -418,7 +394,6 @@ export function Projects() {
                     </motion.p>
                   </CardContent>
                   
-                  {/* Footer - Action Buttons */}
                   <CardFooter className="p-5 pt-0 flex gap-3">
                     <motion.div 
                       className="flex-1"
@@ -451,7 +426,6 @@ export function Projects() {
                           size="sm"
                           className="w-full transition-all duration-300 rounded-lg"
                           onMouseEnter={() => {
-                            // Prefetch metadata for faster startup on hover
                             const candidate = project.video ?? project.demo;
                             const href = normalizeAssetPath(candidate);
                             if (candidate && !preloaded.current[href]) {
@@ -466,18 +440,12 @@ export function Projects() {
                           }}
                           onClick={() => {
                             const isVideoFile = (s?: string | null) => !!s && /\.(mp4|webm)$/i.test(s);
-                            // prefer explicit project.video, otherwise fallback to project.demo
                             const candidate = project.video ?? project.demo ?? null;
                             if (candidate && isVideoFile(candidate)) {
                               const fullSrc = normalizeAssetPath(candidate);
-                              // If a low-res preview is provided, open the modal with
-                              // the preview and swap to the full file on play. This
-                              // improves perceived startup when preview files exist.
                               const previewCandidate = project.preview ?? null;
                               const previewSrc = previewCandidate ? normalizeAssetPath(previewCandidate) : null;
 
-                              // Warm the cache for the full file so bytes start arriving
-                              // while the preview is shown.
                               warmCacheRange(fullSrc);
 
                               if (previewSrc) {
@@ -490,9 +458,7 @@ export function Projects() {
                               setCurrentVideoPoster(project.image ?? null);
                               setIsVideoOpen(true);
                             } else if (project.demo) {
-                              // If it's an external URL open as-is, otherwise normalize a local path
                               const href = /^https?:\/\//i.test(project.demo) ? project.demo : normalizeAssetPath(project.demo);
-                              // Try warming cache for local demos too
                               if (!/^https?:\/\//i.test(href)) warmCacheRange(href);
                               window.open(href, '_blank');
                             }
@@ -535,8 +501,7 @@ export function Projects() {
                     onLoadedData={() => {}}
                     onPlaying={() => {}}
                     onPlay={() => {
-                      // If we had a full-size file to swap in, replace the
-                      // preview with the full src and attempt to continue play.
+                      
                       if (currentFullVideoSrc && currentVideoSrc !== currentFullVideoSrc) {
                         try {
                           if (videoRef.current) {
@@ -545,13 +510,9 @@ export function Projects() {
                             videoRef.current.load();
                             videoRef.current.play().catch(() => {});
                           }
-                        } catch {
-                          // ignore
-                        }
+                        } catch {}
                         setCurrentVideoSrc(currentFullVideoSrc);
                         setCurrentFullVideoSrc(null);
-                      } else {
-                        // nothing — allow native controls to show loading state
                       }
                     }}
                   />
@@ -563,7 +524,6 @@ export function Projects() {
             </DialogContent>
           </Dialog>
 
-        {/* Empty State */}
         {filteredProjects.length === 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}

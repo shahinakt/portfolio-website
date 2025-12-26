@@ -16,7 +16,7 @@ const skillCategories = [
   },
   {
     category: 'Backend',
-    skills: ['Node.js', 'Express.js', 'FastAPI', 'Django', 'Flask', 'REST APIs', 'GraphQL'],
+    skills: ['Node.js', 'FastAPI', 'Django', 'Flask', 'REST APIs'],
     color: 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-200 dark:border-green-800'
   },
   {
@@ -28,21 +28,21 @@ const skillCategories = [
     category: 'AI & ML',
     skills: [
       'Scikit-learn', 'TensorFlow', 'Transformers', 'OpenCV',
-      'LangChain', 'Prompt Engineering', 'NLP', 'CLIP', 'Pandas', 'NumPy'
+      'Prompt Engineering', 'CLIP', 'Pandas', 'NumPy'
     ],
     color: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800'
   },
   {
     category: 'Cybersecurity',
     skills: [
-      'Penetration Testing', 'OSINT', 'MITRE ATT&CK', 'OWASP Top 10',
-      'Secure Coding', 'Burp Suite', 'Kali Linux', 'Blockchain Security'
+      'Threat Intelligence', 'OSINT', 'MITRE ATT&CK',
+      'Secure Coding', 'Blockchain Security'
     ],
     color: 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800'
   },
   {
     category: 'DevOps & Cloud',
-    skills: ['Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Firebase', 'Vercel', 'AWS', 'Linux'],
+    skills: [ 'CI/CD', 'GitHub', 'Firebase', 'Vercel', 'AWS'],
     color: 'bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-800'
   },
   {
@@ -73,7 +73,6 @@ const categoryVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
       staggerChildren: 0.03,
       delayChildren: 0.2
     }
@@ -91,8 +90,7 @@ const skillVariants = {
     scale: 1,
     y: 0,
     transition: {
-      duration: 0.4,
-      ease: [0.25, 0.46, 0.45, 0.94] as const
+      duration: 0.4
     }
   }
 };
@@ -106,8 +104,7 @@ const titleVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const
+      duration: 0.6
     }
   }
 };

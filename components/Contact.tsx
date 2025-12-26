@@ -1,21 +1,14 @@
 "use client";
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
-import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { toast } from "sonner";
 
-// Custom Medium icon component
 const MediumIcon = () => (
   <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
     <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
   </svg>
-)
+);
 
 const socialLinks = [
   { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/shahinakt', color: 'hover:text-blue-600' },
@@ -37,25 +30,6 @@ const containerVariants = {
   }
 };
 
-const formVariants = {
-  hidden: { 
-    opacity: 0, 
-    x: -50,
-    scale: 0.95
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-      staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
-};
-
 const contactInfoVariants = {
   hidden: { 
     opacity: 0, 
@@ -68,7 +42,6 @@ const contactInfoVariants = {
     scale: 1,
     transition: {
       duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
       staggerChildren: 0.1,
       delayChildren: 0.4
     }
@@ -84,8 +57,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94] as const
+      duration: 0.5
     }
   }
 };
@@ -101,8 +73,7 @@ const socialVariants = {
     scale: 1,
     y: 0,
     transition: {
-      duration: 0.4,
-      ease: [0.25, 0.46, 0.45, 0.94] as const
+      duration: 0.4
     }
   }
 };
@@ -116,69 +87,12 @@ const titleVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const
+      duration: 0.6
     }
   }
 };
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      // Basic client-side validation
-      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-        toast.error('Please fill out all required fields.');
-        setIsSubmitting(false);
-        return;
-      }
-
-      // Honeypot check (if your form includes a hidden field 'website' to trap bots)
-      // If you add an input named 'website' and it's filled, we'll reject the submission
-      // (no need to include it in the UI; bots will often fill it).
-
-      const resp = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: formData.name, email: formData.email, subject: formData.subject, message: formData.message })
-      });
-
-      const data = await resp.json();
-      if (!resp.ok) {
-        console.error('Contact send failed', data);
-        toast.error(data?.error || 'Failed to send message. Try again later.');
-        setIsSubmitting(false);
-        return;
-      }
-
-  toast.success("Message sent successfully! I'll get back to you soon.");
-  setFormData({ name: '', email: '', subject: '', message: '' });
-  setSubmitted(true);
-    } catch (err) {
-      console.error('Submit error', err);
-      toast.error('Something went wrong. Try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
   return (
     <section className="py-12 lg:py-20 min-h-screen flex items-center bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,115 +117,8 @@ export function Contact() {
           whileInView="visible"
           viewport={{once: true,  margin: "-50px" }}
           variants={containerVariants}
-          className="grid lg:grid-cols-2 gap-8 lg:gap-12"
+          className="max-w-2xl mx-auto space-y-6 lg:space-y-8"
         >
-          {/* Contact Form */}
-          <motion.div variants={formVariants}>
-          <Card className="w-full max-w-md border-border/50 hover:shadow-lg transition-all duration-500 overflow-hidden">
-
-
-              <CardHeader className="pb-4">
-                <motion.div variants={itemVariants}>
-                  <CardTitle className="text-xl lg:text-2xl">Send Message</CardTitle>
-                </motion.div>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
-                  {submitted ? (
-                    <div role="status" aria-live="polite" className="p-4 rounded-md bg-green-600 text-white">
-                      <p className="font-medium">Message submitted — thank you!</p>
-                      <p className="text-sm">I will get back to you soon. If you want to send another message, click the button below.</p>
-                      <div className="mt-3">
-                        <Button
-                          variant="outline"
-                          onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', subject: '', message: '' }); }}
-                        >
-                          Send another
-                        </Button>
-                      </div>
-                    </div>
-                  ) : null}
-                  <motion.div 
-                    variants={itemVariants}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-                  >
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm lg:text-base">Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="hover:border-primary/50 focus:border-primary transition-colors"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm lg:text-base">Email</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="hover:border-primary/50 focus:border-primary transition-colors"
-                        placeholder="youremail@example.com"
-                      />
-                    </div>
-                  </motion.div>
-                  <motion.div variants={itemVariants} className="space-y-2">
-                    <Label htmlFor="subject" className="text-sm lg:text-base">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="hover:border-primary/50 focus:border-primary transition-colors"
-                      placeholder="What's this about?"
-                    />
-                  </motion.div>
-                  <motion.div variants={itemVariants} className="space-y-2">
-                    <Label htmlFor="message" className="text-sm lg:text-base">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full h-40 resize-none break-words overflow-y-auto overflow-x-hidden whitespace-pre-wrap hover:border-primary/50 focus:border-primary transition-colors"
-                      placeholder="Tell me about your project or idea..."
-                    />
-                  </motion.div>
-                  <motion.div variants={itemVariants}>
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        type="submit"
-                        className="w-full hover:scale-105 transition-transform duration-200"
-                        size="lg"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? 'Sending...' : 'Submit'}
-                      </Button>
-                    </motion.div>
-                  </motion.div>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Contact Info & Social Links */}
-          <motion.div
-            variants={contactInfoVariants}
-            className="space-y-6 lg:space-y-8"
-          >
-            {/* Contact Information */}
             <motion.div variants={itemVariants}>
               <Card className="w-full max-w-2xl border-border/50 hover:shadow-lg transition-all duration-500 overflow-hidden">
 
@@ -320,9 +127,9 @@ export function Contact() {
                 </CardHeader>
                 <CardContent className="space-y-4 lg:space-y-6">
                   {[
-                    { icon: Mail, label: 'Email', value: 'shahina@shahinasareen.tech'},
+                    { icon: Mail, label: 'Email', value: 'shahinasareenkt@gmail.com'},
                     { icon: Phone, label: 'Phone', value: '+91 7594006269' },
-                    { icon: MapPin, label: 'Location', value: 'Kerala, India' }
+                    { icon: MapPin, label: 'Location', value: 'Pattambi, Palakkad, Kerala, India' }
                   ].map((contact) => (
                     <motion.div
                       key={contact.label}
@@ -343,7 +150,6 @@ export function Contact() {
               </Card>
             </motion.div>
 
-            {/* Social Media Links */}
             <motion.div variants={itemVariants}>
               <Card className="border-border/50 hover:shadow-lg transition-all duration-500">
                 <CardHeader className="pb-4">
@@ -382,7 +188,6 @@ export function Contact() {
                 </CardContent>
               </Card>
             </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
