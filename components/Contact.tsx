@@ -129,7 +129,7 @@ export function Contact() {
                   {[
                     { icon: Mail, label: 'Email', value: 'shahinasareenkt@gmail.com'},
                     { icon: Phone, label: 'Phone', value: '+91 7594006269' },
-                    { icon: MapPin, label: 'Location', value: 'Bengaluru','Karnataka','India' }
+                    { icon: MapPin, label: 'Location', value: 'Bengaluru, Karnataka, India' }
                   ].map((contact) => (
                     <motion.div
                       key={contact.label}
