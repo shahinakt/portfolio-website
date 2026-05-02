@@ -6,7 +6,7 @@ import { Badge } from './ui/badge';
 const skillCategories = [
   {
     category: 'Languages',
-    skills: ['Python', 'Java','JavaScript', 'TypeScript', 'C', 'SQL','Kotlin'],
+    skills: ['Python', 'Java','JavaScript', 'TypeScript', 'SQL'],
     color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800'
   },
   {
@@ -16,7 +16,7 @@ const skillCategories = [
   },
   {
     category: 'Backend',
-    skills: ['Node.js', 'FastAPI', 'Django', 'Flask', 'REST APIs'],
+    skills: ['Node.js', 'FastAPI', 'Django', 'REST APIs'],
     color: 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-200 dark:border-green-800'
   },
   {
@@ -28,15 +28,14 @@ const skillCategories = [
     category: 'AI & ML',
     skills: [
       'Scikit-learn', 'TensorFlow', 'Transformers', 'OpenCV',
-      'Prompt Engineering', 'CLIP', 'Pandas', 'NumPy'
-    ],
+      'Prompt Engineering'
+],
     color: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800'
   },
   {
     category: 'Cybersecurity',
     skills: [
-      'Threat Intelligence', 'OSINT', 'MITRE ATT&CK',
-      'Secure Coding', 'Blockchain Security'
+      'Threat Intelligence', 'OSINT', 'MITRE ATT&CK'
     ],
     color: 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800'
   },
@@ -47,7 +46,7 @@ const skillCategories = [
   },
   {
     category: 'Tools & Others',
-    skills: ['Git', 'VS Code', 'Android Studio', 'Postman', 'Jupyter Notebook', 'Notion', 'ChatGPT', 'Claude AI', 'Gemini'],
+    skills: ['Git', 'VS Code', 'Postman', 'Notion', 'ChatGPT', 'Claude AI', 'Gemini'],
     color: 'bg-gray-500/10 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-800'
   }
 ];
