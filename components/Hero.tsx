@@ -59,7 +59,7 @@ export function Hero({ onNavigate }: HeroProps) {
   const { theme } = useTheme();
 
 const handleResumeDownload = () => {
-  window.open('/Shahina_Sareen_KT_Resume.pdf', '_blank');
+  window.open('/ShahinaSareen_Resume.pdf', '_blank');
 };
 
 
