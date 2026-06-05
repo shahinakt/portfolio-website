@@ -65,7 +65,7 @@ const projects: Project[] = [
     image: "/4151253.jpg",
     tech: ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
     github: "https://github.com/shahinakt/Name_face_identity_finder",
-    demo: "ídentityy.mp4",
+    demo: "identityy.mp4",
     category: ["OSINT/Privacy", "AI/ML", "Computer Vision"]
   },
   {
@@ -75,7 +75,7 @@ const projects: Project[] = [
     image: "/images.jpg",
     tech: ["React", "Vite", "TensorFlow.js", "MobileNet", "JavaScript"],
   github: "https://github.com/shahinakt/ML_plant_image_classifier",
-  demo: "/plant.mp4",
+  demo: "plant.mp4",
   category: ["AI/ML", "Web Development"]
   },
   
@@ -97,7 +97,7 @@ const projects: Project[] = [
     image: "/person-working-html-computer.jpg",
     tech: ["Next.js", "React", "OpenAI API", "Tailwind"],
   github: "https://github.com/shahinakt/AI_project_builder",
-  demo: "/pr.mp4",
+  demo: "pr.mp4",
   category: ["Web Development", "AI/ML"]
 
   },
@@ -108,7 +108,7 @@ const projects: Project[] = [
     image: "/resume-apply-work-form-concept.jpg",
     tech: ["Python", "FastAPI", "NLP", "spaCy", "Streamlit", "PyMuPDF", "PDF Parsing", "React", "Vite", "Tailwind CSS", "Framer Motion", "OpenAI API"],
   github: "https://github.com/shahinakt/AI_resume_ATS_checker",
-  demo: "/ats.mp4",
+  demo: "ats.mp4",
   category: ["Web Development", "AI/ML", "Career Tools"]
   },
   {
@@ -118,7 +118,7 @@ const projects: Project[] = [
     image: "/2916138.jpg",
     tech: ["Python", "pypandoc", "PyPDF2", "Streamlit"],
   github: "https://github.com/shahinakt/universal_file_convertor_pro",
-  demo: "/doc.mp4",
+  demo: "doc.mp4",
   category: ["Web Development", "Productivity"]
   },
   {
@@ -128,7 +128,7 @@ const projects: Project[] = [
     image: "/2947690.jpg",
     tech: ["FastAPI", "Python", "EasyOCR", "Transformers", "PyTorch", "Pillow", "React", "JavaScript", "CSS3", "jsPDF"],
   github: "https://github.com/shahinakt/Image_to_text_generator",
-  demo: "/img.mp4",
+  demo: "img.mp4",
   category: ["AI/ML", "Web Development", "Computer Vision"]
   },
   {
