@@ -1,51 +1,71 @@
-# personal_portfolio_website
+# Portfolio Website
 
-A personal portfolio website for Shahina Sareen KT showcasing projects, skills and contact information. Built with Next.js, Tailwind CSS and TypeScript.
+A personal portfolio website for **Shahina Sareen KT** showcasing projects, technical skills, experience, and contact information.
 
-Live site
----------
+## Live Demo
 
-- https://www.shahinasareen.tech
+* https://www.shahinasareen.tech
 
-Quick summary
--------------
+## Tech Stack
 
-- Framework: Next.js 15 
-- UI: Tailwind CSS
-- Language: TypeScript + React 19
-- Animations: Framer Motion
+* **Framework:** Next.js 15
+* **Frontend:** React 19, TypeScript
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion
+* **UI Utilities:** Radix UI, Lucide React, Sonner
 
-Notable dependencies 
-- next, react, react-dom
-- tailwindcss, postcss, autoprefixer
-- framer-motion, lucide-react, sonner
+## Features
 
-Getting started 
------------------------
+* Modern personal portfolio design
+* Responsive layout for desktop and mobile
+* Project showcase section
+* Skills and technology highlights
+* Contact section
+* Smooth animations and interactive UI components
 
-1. Install dependencies:
+## SEO
+
+This project is built with SEO-friendly structure in mind, including:
+
+* semantic React/Next.js pages
+* metadata support through Next.js
+* clean page structure for search engines
+* fast client-side rendering with optimized components
+
+## Getting Started
+
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-2. Run in development:
+### Run the development server
 
 ```bash
 npm run dev
 ```
 
-3. Build for production:
-   
+### Build for production
+
 ```bash
 npm run build
 npm start
 ```
 
-License
--------
+## Scripts
+
+* `npm run dev` — start development server
+* `npm run build` — build production app
+* `npm start` — run the built app
+* `npm run lint` — run lint checks
+
+## Project Status
+
+This repository is actively being improved and updated with new portfolio content, UI refinements, and project additions.
+
+## License
 
 MIT
-
 
 
