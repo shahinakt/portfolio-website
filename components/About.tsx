@@ -6,34 +6,34 @@ import { Card, CardContent } from './ui/card';
 
 const roles = [
   {
-    title: 'Frontend Developer',
+    title: 'Backend Developer',
+    icon: Server,
+    description: 'Python, FastAPI, REST APIs, PostgreSQL, MongoDB'
+  },
+  {
+    title: 'Full Stack Developer',
     icon: Code,
     description: 'React, Next.js, TypeScript, Tailwind CSS'
   },
   {
-    title: 'Backend Developer',
-    icon: Server,
-    description: 'Node.js, Python, MongoDB, REST APIs'
-  },
-  {
-    title: 'Cybersecurity (Foundational)',
-    icon: Shield,
-    description: 'Penetration Testing, MITRE ATT&CK, Secure Coding'
-  },
-  {
-    title: 'AI & ML Practitioner (Foundational)',
+    title: 'AI & Machine Learning',
     icon: Brain,
-    description: 'Transformers, NLP'
+    description: 'LLMs, NLP, Computer Vision, Transformers'
   },
   {
-    title: 'Prompt Engineer (Applied)',
-    icon: PenTool,
-    description: 'LLM Prompting, OpenAI API'
+    title: 'Cybersecurity',
+    icon: Shield,
+    description: 'Threat Intelligence, Secure Coding, OSINT'
   },
   {
-    title: 'Technical & SEO Writer',
+    title: 'Technical Writer',
     icon: Search,
-    description: 'Content Strategy, Technical Writing, SEO Optimization'
+    description: 'Technical Writing, SEO, Documentation'
+  },
+  {
+    title: 'Prompt Engineering',
+    icon: PenTool,
+    description: 'LLM Workflows, OpenAI APIs, AI Automation'
   }
 ];
 
@@ -111,7 +111,7 @@ export function About() {
             variants={titleVariants}
             className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4"
           >
-            Fast-learning full-stack dev with hands-on experience in AI and secure, scalable systems.
+            Backend-focused software engineer building scalable APIs, secure systems, and modern full-stack applications.
           </motion.p>
         </motion.div>
 
@@ -169,24 +169,24 @@ export function About() {
                   variants={contentVariants}
                   className="text-xl lg:text-2xl mb-4 lg:mb-6"
                 >
-                  Hello there! 👋
+                  About Me
                 </motion.h3>
                 <motion.div
                   variants={containerVariants}
                   className="space-y-3 lg:space-y-4 text-muted-foreground leading-relaxed text-sm lg:text-base"
                 >
                   <motion.p variants={contentVariants}>
-                  I’m Shahina Sareen KT, a self-taught full-stack developer and cybersecurity enthusiast currently pursuing a B.Sc. in Computer Science at the University of Calicut. I specialize in building secure, scalable, and intelligent web applications using React, Next.js, Node.js, FastAPI, and MongoDB, with strong hands-on experience across both frontend and backend systems.
-                  </motion.p>
+I’m Shahina Sareen KT, a backend-focused software engineer currently pursuing a B.Sc. in Computer Science at the University of Calicut. I enjoy designing scalable REST APIs, authentication systems, and database-driven applications using Python, FastAPI, PostgreSQL, and MongoDB while building responsive user interfaces with React and Next.js.
+</motion.p>
                   <motion.p variants={contentVariants}>
-                  I have built 11+ production-grade projects across AI/ML, cybersecurity, full-stack development, computer vision, and OSINT, focusing on real-world problem solving rather than demos. My work includes threat intelligence platforms with chatbot integration, AI-powered disease prediction, CCTV-based multi-event detection systems, and a face–name identity finder leveraging facial recognition and open-source intelligence.
-                  </motion.p>
+My projects focus on solving real-world problems through reliable backend architecture. I have built applications including a Cyber Threat Intelligence Platform, a Customer Review Analytics Dashboard, and a Digital Identity Search Platform, implementing REST APIs, secure authentication, database design, and AI-powered features.
+</motion.p>
                   <motion.p variants={contentVariants}>
-                  I specialize in Python, FastAPI, React, and Next.js, building scalable, cloud-native applications using CI/CD and containerized workflows. My AI experience spans machine learning, NLP, computer vision, and LLM integration with tools like LangChain, Transformers, YOLOv8, TensorFlow, and OpenAI APIs. In cybersecurity, I work on threat intelligence, OSINT-based analysis, scam detection, and security-aware system design aligned with real-world attack patterns.
-                  </motion.p>
+Beyond backend development, I have experience in AI, machine learning, computer vision, and cybersecurity. I use these technologies to enhance software systems rather than treating them as standalone projects, enabling practical solutions that combine intelligent automation with secure software engineering.
+</motion.p>
                   <motion.p variants={contentVariants}>
-                  Alongside development, I’m an active technical writer with 60+ articles and 10,000+ claps on Medium, focusing on AI, cybersecurity, and emerging tech trends. I’m currently seeking a Software Engineer Internship where I can contribute to impactful projects while continuing to grow as a developer and innovator.
-                  </motion.p>
+I continuously strengthen my software engineering skills through personal projects, technical writing, and learning modern development practices. I am currently seeking Backend Engineer and Software Engineer internship opportunities where I can contribute to scalable products while growing as an engineer.
+</motion.p>
                 </motion.div>
               </CardContent>
             </Card>

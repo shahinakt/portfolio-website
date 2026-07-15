@@ -1,11 +1,23 @@
 [
   {
     "id": "threat-intelligence-chatbot",
-    "title": "Threat Intelligence With Chatbot Integration",
-    "description": "A full-stack, real-time system that detects cyber threats, scams, and fake links through AI models and user reports. Features include document/image scam detection, global threat heatmaps, real-time alerting, and a personalized dashboard.",
+    "title": "Threat Intelligence Platform with AI Chatbot",
+    "description": "Designed and developed a FastAPI backend providing secure REST APIs for cyber threat analysis, scam detection, real-time alerts, MongoDB data management, and chatbot-assisted investigation through an interactive React dashboard.",
     "image": "/cybersecurity-professional-work.jpg",
-    "tech": ["FastAPI", "React", "MongoDB", "AI/ML", "Blockchain", "Cloud Hosting"],
-    "category": ["Full Stack", "AI/ML", "Cybersecurity", "Blockchain"],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "React",
+      "MongoDB",
+      "REST APIs",
+      "JWT"
+    ],
+    "category": [
+      "Backend",
+      "Full Stack",
+      "Cybersecurity",
+      "AI/ML"
+    ],
     "github": "https://github.com/shahinakt/cyber_threat_intelligence",
     "video": {
       "src": "/cyber_threat_intel.mp4",
@@ -16,32 +28,28 @@
     }
   },
   {
-    "id": "disease-predictor-chatbot",
-    "title": "Disease Predictor with Chatbot Integration",
-    "description": "An AI-driven healthcare tool that predicts symptoms of diseases based on user input. Uses ML classification on patient data and symptom patterns for prediction and prevention suggestions.",
-    "image": "/face-recognition-personal-identification-collage.jpg",
-    "tech": ["Python", "Sklearn", "Pandas", "FastAPI", "React"],
-    "category": ["Full Stack", "AI/ML", "Healthcare"],
-    "github": "https://github.com/shahinakt/Early_disease_predictor",
+    "id": "customer-review-analytics",
+    "title": "Customer Review Analytics Dashboard",
+    "description": "Designed and developed a FastAPI backend for customer sentiment analysis using machine learning, SQLite, REST APIs, and interactive dashboards that generate business insights from customer reviews.",
+    "image": "/customer-review-dashboard.jpg",
+    "tech": [
+      "Python",
+      "FastAPI",
+      "React",
+      "SQLite",
+      "Scikit-learn",
+      "Power BI",
+      "Pandas"
+    ],
+    "category": [
+      "Backend",
+      "Full Stack",
+      "AI/ML"
+    ],
+    "github": "YOUR_GITHUB_REPO",
     "video": {
-      "src": "/early_disease_predictor.mp4",
-      "poster": "/face-recognition-personal-identification-collage.jpg",
-      "autoplayPreview": true,
-      "muted": true,
-      "loop": true
-    }
-  },
-  {
-    "id": "cctv-multi-detection",
-    "title": "AI-Based CCTV Multi Detection System",
-    "description": "AI surveillance system that analyzes live or recorded CCTV feeds to detect violence, thefts, falls, or accidents in real time. Sends automated alerts to authorities via a dashboard and mobile app.",
-    "image": "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
-    "tech": ["YOLOv8", "MediaPipe", "OpenCV", "FastAPI", "React", "Firebase", "AWS", "React Native"],
-    "category": ["Full Stack", "AI/ML", "Computer Vision", "Mobile Development", "Cybersecurity", "Blockchain"],
-    "github": "https://github.com/shahinakt/AI_based_cctv_multi_detection",
-    "video": {
-      "src": "/cctv.mp4",
-      "poster": "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
+      "src": "/customer-review-dashboard.mp4",
+      "poster": "/customer-review-dashboard.jpg",
       "autoplayPreview": true,
       "muted": true,
       "loop": true
@@ -49,11 +57,23 @@
   },
   {
     "id": "name-face-identity-finder",
-    "title": "Name Face Identity Finder",
-    "description": "A sophisticated full-stack application that enables users to search for digital footprints and public information using either a person's name or facial recognition technology. Built with modern web technologies and AI-powered face detection capabilities.",
+    "title": "Digital Identity Search Platform",
+    "description": "Built a FastAPI backend combining facial recognition, NLP, and OSINT techniques to discover publicly available digital identities using names or facial images through secure APIs.",
     "image": "/4151253.jpg",
-    "tech": ["FastAPI", "DeepFace", "TensorFlow", "OpenCV", "spaCy", "Transformers", "BeautifulSoup4", "Pillow", "Next.js", "Tailwind CSS"],
-    "category": ["OSINT/Privacy", "AI/ML", "Computer Vision"],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "DeepFace",
+      "OpenCV",
+      "Transformers",
+      "Next.js"
+    ],
+    "category": [
+      "Backend",
+      "AI/ML",
+      "OSINT/Privacy"
+    ],
     "github": "https://github.com/shahinakt/Name_face_identity_finder",
     "video": {
       "src": "/identityy.mp4",
@@ -64,60 +84,95 @@
     }
   },
   {
-    "id": "ml-plant-classifier",
-    "title": "ML Plant Image Classifier",
-    "description": "Plant Identifier is a machine learning-powered web app that identifies plants from uploaded images using TensorFlow.js + MobileNet. It provides real-time classification with confidence scores, supports dark mode, and features a responsive, fast-loading design built with React, Vite, and Tailwind CSS.",
-    "image": "/images.jpg",
-    "tech": ["React", "Vite", "TensorFlow.js", "MobileNet", "JavaScript"],
-    "category": ["AI/ML", "Web Development"],
-    "github": "https://github.com/shahinakt/ML_plant_image_classifier",
+    "id": "cctv-multi-detection",
+    "title": "AI-Based CCTV Multi Detection System",
+    "description": "Developed an AI-powered surveillance platform using FastAPI, YOLOv8, OpenCV, React, and Firebase to detect violence, theft, falls, and accidents with real-time notifications.",
+    "image": "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
+    "tech": [
+      "Python",
+      "FastAPI",
+      "YOLOv8",
+      "OpenCV",
+      "React",
+      "Firebase",
+      "AWS"
+    ],
+    "category": [
+      "Backend",
+      "AI/ML",
+      "Computer Vision"
+    ],
+    "github": "https://github.com/shahinakt/AI_based_cctv_multi_detection",
     "video": {
-      "src": "/plant.mp4",
-      "poster": "/images.jpg",
+      "src": "/cctv.mp4",
+      "poster": "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
       "autoplayPreview": true,
       "muted": true,
       "loop": true
     }
   },
   {
-    "id": "auto-call-rejector",
-    "title": "Auto Call Rejector with Smart Response",
-    "description": "Native Android app that automatically screens and rejects calls from blacklisted or low-priority numbers, using Kotlin, Jetpack Compose, and Room (SQLite) for data storage.",
-    "image": "/woman-using-mobile-while-car.jpg",
-    "tech": ["Kotlin", "Android Studio", "Jetpack Compose", "Room (SQLite)", "Android"],
-    "category": ["Mobile Development"],
-    "github": "https://github.com/shahinakt/Auto_call_rejector_with_smart_response",
+    "id": "disease-predictor-chatbot",
+    "title": "Disease Predictor with AI Chatbot",
+    "description": "Developed a FastAPI-powered healthcare platform that predicts diseases from symptoms using machine learning models and REST APIs with a React frontend.",
+    "image": "/face-recognition-personal-identification-collage.jpg",
+    "tech": [
+      "Python",
+      "FastAPI",
+      "Scikit-learn",
+      "React",
+      "Pandas"
+    ],
+    "category": [
+      "Backend",
+      "AI/ML",
+      "Healthcare"
+    ],
+    "github": "https://github.com/shahinakt/Early_disease_predictor",
     "video": {
-      "src": "/acr.mp4",
-      "poster": "/woman-using-mobile-while-car.jpg",
+      "src": "/early_disease_predictor.mp4",
+      "poster": "/face-recognition-personal-identification-collage.jpg",
       "autoplayPreview": true,
       "muted": true,
       "loop": true
     }
   },
   {
-    "id": "ai-project-builder",
-    "title": "AI Project Builder",
-    "description": "No-code platform that auto-generates project ideas and structures based on selected technologies or domains using OpenAI.",
-    "image": "/person-working-html-computer.jpg",
-    "tech": ["Next.js", "React", "OpenAI API", "Tailwind"],
-    "category": ["Web Development", "AI/ML"],
-    "github": "https://github.com/shahinakt/AI_project_builder",
-    "video": {
-      "src": "/pr.mp4",
-      "poster": "/person-working-html-computer.jpg",
-      "autoplayPreview": true,
-      "muted": true,
-      "loop": true
-    }
+    "id": "portfolio-website",
+    "title": "Portfolio Website",
+    "description": "Personal portfolio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion featuring responsive design, SEO optimization, dark mode, and recruiter-focused backend branding.",
+    "image": "/Screenshot 2025-08-07 193506.png",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "category": [
+      "Web Development"
+    ],
+    "github": "https://github.com/shahinakt/personal_portfolio_website",
+    "liveUrl": "https://www.shahinasareen.tech",
+    "video": null
   },
   {
     "id": "ai-resume-ats-checker",
     "title": "AI Resume ATS Checker",
-    "description": "Resume analyzer that checks for ATS compatibility, highlights gaps, and recommends role-specific improvements.",
+    "description": "Built an AI-powered resume analysis platform using FastAPI and NLP to evaluate ATS compatibility and generate role-specific recommendations.",
     "image": "/resume-apply-work-form-concept.jpg",
-    "tech": ["Python", "FastAPI", "NLP", "spaCy", "Streamlit", "PyMuPDF", "PDF Parsing", "React", "Vite", "Tailwind CSS", "Framer Motion", "OpenAI API"],
-    "category": ["Web Development", "AI/ML", "Career Tools"],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "spaCy",
+      "React",
+      "OpenAI API"
+    ],
+    "category": [
+      "Backend",
+      "AI/ML",
+      "Career Tools"
+    ],
     "github": "https://github.com/shahinakt/AI_resume_ATS_checker",
     "video": {
       "src": "/ats.mp4",
@@ -130,10 +185,18 @@
   {
     "id": "smart-document-converter",
     "title": "Smart Document Converter",
-    "description": "Converts PDFs, DOCX, TXT, RTF, ODT, and Markdown with preserved formatting. Supports batch and auto summarization.",
+    "description": "Converts multiple document formats while preserving formatting and supporting summarization workflows.",
     "image": "/2916138.jpg",
-    "tech": ["Python", "pypandoc", "PyPDF2", "Streamlit"],
-    "category": ["Web Development", "Productivity"],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "PyPDF2",
+      "Pypandoc"
+    ],
+    "category": [
+      "Backend",
+      "Productivity"
+    ],
     "github": "https://github.com/shahinakt/universal_file_convertor_pro",
     "video": {
       "src": "/doc.mp4",
@@ -146,10 +209,20 @@
   {
     "id": "image-to-text-generator",
     "title": "Image to Text Generator",
-    "description": "Extracts and cleans text from images using OCR and NLP with GPU acceleration. Supports multiple languages and summary view.",
+    "description": "Designed a FastAPI OCR service using EasyOCR and Transformers to extract and summarize multilingual text from images.",
     "image": "/2947690.jpg",
-    "tech": ["FastAPI", "Python", "EasyOCR", "Transformers", "PyTorch", "Pillow", "React", "JavaScript", "CSS3", "jsPDF"],
-    "category": ["AI/ML", "Web Development", "Computer Vision"],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "EasyOCR",
+      "Transformers",
+      "React"
+    ],
+    "category": [
+      "Backend",
+      "AI/ML",
+      "Computer Vision"
+    ],
     "github": "https://github.com/shahinakt/Image_to_text_generator",
     "video": {
       "src": "/img.mp4",
@@ -160,14 +233,71 @@
     }
   },
   {
-    "id": "portfolio-website",
-    "title": "Portfolio Website",
-    "description": "A modern, responsive portfolio built with Next.js and Tailwind CSS. Features animations, dark mode, project filtering, and mobile-friendly design.",
-    "image": "/Screenshot 2025-08-07 193506.png",
-    "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    "category": ["Web Development"],
-    "github": "https://github.com/shahinakt/personal_portfolio_website",
-    "liveUrl": "https://www.shahinasareen.tech",
-    "video": null
+    "id": "ai-project-builder",
+    "title": "AI Project Builder",
+    "description": "Platform that generates project ideas, architecture, and boilerplate using LLMs.",
+    "image": "/person-working-html-computer.jpg",
+    "tech": [
+      "Next.js",
+      "React",
+      "OpenAI API"
+    ],
+    "category": [
+      "AI/ML",
+      "Web Development"
+    ],
+    "github": "https://github.com/shahinakt/AI_project_builder",
+    "video": {
+      "src": "/pr.mp4",
+      "poster": "/person-working-html-computer.jpg",
+      "autoplayPreview": true,
+      "muted": true,
+      "loop": true
+    }
+  },
+  {
+    "id": "auto-call-rejector",
+    "title": "Auto Call Rejector with Smart Response",
+    "description": "Native Android application that automatically screens unwanted calls using Kotlin and Room database.",
+    "image": "/woman-using-mobile-while-car.jpg",
+    "tech": [
+      "Kotlin",
+      "Jetpack Compose",
+      "SQLite"
+    ],
+    "category": [
+      "Mobile Development"
+    ],
+    "github": "https://github.com/shahinakt/Auto_call_rejector_with_smart_response",
+    "video": {
+      "src": "/acr.mp4",
+      "poster": "/woman-using-mobile-while-car.jpg",
+      "autoplayPreview": true,
+      "muted": true,
+      "loop": true
+    }
+  },
+  {
+    "id": "ml-plant-classifier",
+    "title": "ML Plant Image Classifier",
+    "description": "Machine learning web application for identifying plant species from uploaded images.",
+    "image": "/images.jpg",
+    "tech": [
+      "React",
+      "TensorFlow.js",
+      "MobileNet"
+    ],
+    "category": [
+      "AI/ML",
+      "Web Development"
+    ],
+    "github": "https://github.com/shahinakt/ML_plant_image_classifier",
+    "video": {
+      "src": "/plant.mp4",
+      "poster": "/images.jpg",
+      "autoplayPreview": true,
+      "muted": true,
+      "loop": true
+    }
   }
 ]

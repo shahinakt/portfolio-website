@@ -59,7 +59,7 @@ export function Hero({ onNavigate }: HeroProps) {
   const { theme } = useTheme();
 
 const handleResumeDownload = () => {
-  window.open('/ShahinaSareen_Resume.pdf', '_blank');
+  window.open('/ShahinaSareenKT_Resume.pdf', '_blank');
 };
 
 
@@ -159,7 +159,7 @@ const handleResumeDownload = () => {
                 variants={itemVariants}
                 className="text-xl sm:text-2xl text-muted-foreground"
               >
-                Full-Stack Dev • AI/ML • Cybersecurity
+                Building Scalable APIs with Python • FastAPI • PostgreSQL
               </motion.h2>
             </motion.div>
 
@@ -172,7 +172,7 @@ const handleResumeDownload = () => {
               }`}
             >
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                I build practical digital solutions across full-stack development, foundational AI/ML, basic cybersecurity, and technical writing, with a focus on scalable, user-focused applications. Actively looking for opportunities to learn through real-world experience.
+               I&apos;m a backend-focused software engineer passionate about building scalable APIs, secure authentication systems, and database-driven applications using Python, FastAPI, PostgreSQL, and MongoDB. I enjoy solving real-world problems through clean backend architecture while leveraging React/Next.js for full-stack development and applying AI and cybersecurity concepts where they enhance the solutions I build.
               </p>
             </motion.div>
 
@@ -214,7 +214,7 @@ const handleResumeDownload = () => {
                   }`}
                 >
                   <Download className="w-4 lg:w-5 h-4 lg:h-5 mr-2" />
-                  Resume Preview
+                  Download Resume
                 </Button>
               </motion.div>
             </motion.div>

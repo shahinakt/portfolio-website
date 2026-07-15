@@ -1,12 +1,17 @@
-export const SITE_URL = "https://www.shahinasareen.tech";
-export const SITE_NAME = "Shahina Sareen KT | Portfolio";
+export const SITE_URL = "https://www.shahinasareenkt.dev";
+
+export const SITE_NAME = "Shahina Sareen KT | Backend Software Engineer";
+
 export const SITE_DESCRIPTION =
-  "Minimal, modern dev portfolio built with Next.js, Tailwind CSS, and TypeScript.";
+  "Backend-focused Software Engineer specializing in Python, FastAPI, REST API development, PostgreSQL, MongoDB, and scalable full-stack web applications built with React and Next.js.";
 
 export const AUTHOR_NAME = "Shahina Sareen KT";
-export const AUTHOR_ROLE = "Full-Stack Developer • AI/ML • Cybersecurity";
+
+export const AUTHOR_ROLE =
+  "Backend Software Engineer • Python • FastAPI • REST APIs";
+
 export const AUTHOR_BIO =
-  "I build practical digital solutions across full-stack development, foundational AI/ML, basic cybersecurity, and technical writing, with a focus on scalable, user-focused applications.";
+  "Backend-focused software engineer passionate about designing scalable APIs, secure backend systems, and database-driven applications using Python, FastAPI, PostgreSQL, and MongoDB. Experienced in full-stack development with React and Next.js while applying AI and cybersecurity concepts to build practical software solutions.";
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/shahinakt",

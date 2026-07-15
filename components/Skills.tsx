@@ -5,48 +5,140 @@ import { Badge } from './ui/badge';
 
 const skillCategories = [
   {
-    category: 'Languages',
-    skills: ['Python', 'Java','JavaScript', 'TypeScript', 'SQL'],
-    color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800'
-  },
-  {
-    category: 'Frontend',
-    skills: ['React', 'Next.js', 'Vue.js','Tailwind CSS', 'HTML5', 'CSS3', 'Framer Motion'],
-    color: 'bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-200 dark:border-pink-800'
-  },
-  {
     category: 'Backend',
-    skills: ['Node.js', 'FastAPI', 'Django', 'REST APIs'],
+    skills: [
+      'Python',
+      'FastAPI',
+      'Node.js',
+      'Express.js',
+      'Django',
+      'REST APIs',
+      'SQLAlchemy',
+      'Pydantic',
+      'JWT Authentication',
+      'Swagger/OpenAPI',
+      'WebSockets',
+      'Celery'
+    ],
     color: 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-200 dark:border-green-800'
   },
+
   {
-    category: 'Databases',
-    skills: ['MongoDB', 'PostgreSQL', 'MySQL'],
+    category: 'Databases & Caching',
+    skills: [
+      'PostgreSQL',
+      'MongoDB',
+      'MySQL',
+      'SQLite',
+      'Redis'
+    ],
     color: 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800'
   },
+
   {
-    category: 'AI & ML',
+    category: 'Languages',
     skills: [
-      'Scikit-learn', 'TensorFlow', 'Transformers', 'OpenCV',
+      'Python',
+      'JavaScript',
+      'TypeScript',
+      'Java',
+      'SQL'
+    ],
+    color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800'
+  },
+
+  {
+    category: 'Frontend',
+    skills: [
+      'React',
+      'Next.js',
+      'Vue.js',
+      'HTML5',
+      'CSS3',
+      'Tailwind CSS',
+      'Framer Motion'
+    ],
+    color: 'bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-200 dark:border-pink-800'
+  },
+
+  {
+    category: 'State Management',
+    skills: [
+      'Redux Toolkit',
+      'Redux',
+      'Context API',
+      'React Hooks'
+    ],
+    color: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800'
+  },
+
+  {
+    category: 'AI & Machine Learning',
+    skills: [
+      'Scikit-learn',
+      'TensorFlow',
+      'Transformers',
+      'OpenCV',
+      'LangChain',
+      'YOLOv8',
+      'LLM Integration',
       'Prompt Engineering'
-],
+    ],
     color: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800'
   },
+
   {
     category: 'Cybersecurity',
     skills: [
-      'Threat Intelligence', 'OSINT', 'MITRE ATT&CK'
+      'Threat Intelligence',
+      'OSINT',
+      'MITRE ATT&CK',
+      'Secure Coding'
     ],
     color: 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800'
   },
+
   {
     category: 'DevOps & Cloud',
-    skills: [ 'CI/CD', 'GitHub', 'Firebase', 'Vercel', 'AWS'],
+    skills: [
+      'Git',
+      'GitHub',
+      'Docker',
+      'CI/CD',
+      'AWS',
+      'Microsoft Azure',
+      'Firebase',
+      'Vercel'
+    ],
     color: 'bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-800'
   },
+
+  {
+    category: 'Software Engineering',
+    skills: [
+      'Object-Oriented Programming',
+      'Data Structures',
+      'Algorithms',
+      'System Design',
+      'SDLC',
+      'Agile Methodologies'
+    ],
+    color: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-200 dark:border-cyan-800'
+  },
+
   {
     category: 'Tools & Others',
-    skills: ['Kali Linux','Bash','Git', 'VS Code', 'Postman', 'Notion', 'ChatGPT', 'Claude AI', 'Gemini'],
+    skills: [
+      'Postman',
+      'GitHub Copilot',
+      'VS Code',
+      'Bash',
+      'Kali Linux',
+      'Notion',
+      'ChatGPT',
+      'Claude',
+      'Gemini'
+    ],
     color: 'bg-gray-500/10 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-800'
   }
 ];
@@ -124,7 +216,7 @@ export function Skills() {
             variants={titleVariants}
             className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4"
           >
-            A comprehensive toolkit for building modern digital solutions
+            Backend, full-stack, AI, and cloud technologies used to build scalable software solutions.
           </motion.p>
         </motion.div>
 

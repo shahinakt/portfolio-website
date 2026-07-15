@@ -19,7 +19,7 @@ const titleVariants = {
 };
 
 export function Projects() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Backend");
   const [demoProject, setDemoProject] = useState<Project | null>(null);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
 
@@ -41,13 +41,13 @@ export function Projects() {
           className="mb-12 text-center lg:mb-16"
         >
           <h2 className="mb-3 text-2xl sm:text-3xl lg:mb-4 lg:text-4xl xl:text-5xl">
-            Featured Projects
+            Featured Backend & Full Stack Projects
           </h2>
           <motion.p
             variants={titleVariants}
             className="mx-auto max-w-3xl px-4 text-lg text-muted-foreground lg:text-xl"
           >
-            A showcase of my work across different domains and technologies
+            A collection of backend-focused applications showcasing REST API development, database design, authentication, AI integration, and scalable full-stack software engineering.
           </motion.p>
         </motion.div>
 
