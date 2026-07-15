@@ -176,7 +176,7 @@ export function About() {
                   className="space-y-3 lg:space-y-4 text-muted-foreground leading-relaxed text-sm lg:text-base"
                 >
                   <motion.p variants={contentVariants}>
-I’m Shahina Sareen KT, a backend-focused software engineer currently pursuing a B.Sc. in Computer Science at the University of Calicut. I enjoy designing scalable REST APIs, authentication systems, and database-driven applications using Python, FastAPI, PostgreSQL, and MongoDB while building responsive user interfaces with React and Next.js.
+I’m Shahina Sareen KT, a backend-focused software engineer who just completed B.Sc. in Computer Science at the University of Calicut. I enjoy designing scalable REST APIs, authentication systems, and database-driven applications using Python, FastAPI, PostgreSQL, and MongoDB while building responsive user interfaces with React and Next.js.
 </motion.p>
                   <motion.p variants={contentVariants}>
 My projects focus on solving real-world problems through reliable backend architecture. I have built applications including a Cyber Threat Intelligence Platform, a Customer Review Analytics Dashboard, and a Digital Identity Search Platform, implementing REST APIs, secure authentication, database design, and AI-powered features.
