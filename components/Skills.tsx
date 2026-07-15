@@ -106,7 +106,6 @@ const skillCategories = [
       'Docker',
       'CI/CD',
       'AWS',
-      'Microsoft Azure',
       'Firebase',
       'Vercel'
     ],
