@@ -36,30 +36,27 @@ Alongside backend engineering, I build modern full-stack web applications using 
 
 # Tech Stack
 
-## Frontend
-
+## Framework
 - Next.js 15
+
+## Frontend
 - React 19
 - TypeScript
 - Tailwind CSS
+
+## UI & Animation
 - Framer Motion
-
-## Backend
-
-- FastAPI
-- Node.js
-- REST APIs
-
-## Database
-
-- PostgreSQL
-- MongoDB
-
-## UI
-
 - Radix UI
 - Lucide React
 - Sonner
+
+## Deployment
+- Vercel
+
+## Development Tools
+- ESLint
+- Prettier
+
 
 ---
 
