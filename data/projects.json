@@ -20,7 +20,7 @@
     ],
     "github": "https://github.com/shahinakt/cyber_threat_intelligence",
     "video": {
-      "src": "/cyber_threat_intel.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/cyber_threat_intel.mp4",
       "poster": "/cybersecurity-professional-work.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -48,7 +48,7 @@
     ],
     "github": "https://github.com/RiLantern/consumer_review_analytics_platform",
     "video": {
-      "src": "/customer-review-dashboard.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/customer-review-dashboard.mp4",
       "poster": "/customer-review-dashboard.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -76,7 +76,7 @@
     ],
     "github": "https://github.com/shahinakt/Name_face_identity_finder",
     "video": {
-      "src": "/identityy.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/identityy.mp4",
       "poster": "/4151253.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -104,7 +104,7 @@
     ],
     "github": "https://github.com/shahinakt/AI_based_cctv_multi_detection",
     "video": {
-      "src": "/cctv.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/cctv.mp4",
       "poster": "/cctv-security-technology-with-lock-icon-digital-remix.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -130,7 +130,7 @@
     ],
     "github": "https://github.com/shahinakt/Early_disease_predictor",
     "video": {
-      "src": "/early_disease_predictor.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/early_disease_predictor.mp4",
       "poster": "/face-recognition-personal-identification-collage.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -152,8 +152,8 @@
     "category": [
       "Web Development"
     ],
-    "github": "https://github.com/shahinakt/personal_portfolio_website",
-    "liveUrl": "https://www.shahinasareen.tech",
+    "github": "https://github.com/shahinakt/portfolio-website",
+    "liveUrl": "https://www.shahinasareenkt.dev",
     "video": null
   },
   {
@@ -175,7 +175,7 @@
     ],
     "github": "https://github.com/shahinakt/AI_resume_ATS_checker",
     "video": {
-      "src": "/ats.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/ats.mp4",
       "poster": "/resume-apply-work-form-concept.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -199,7 +199,7 @@
     ],
     "github": "https://github.com/shahinakt/universal_file_convertor_pro",
     "video": {
-      "src": "/doc.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/doc.mp4",
       "poster": "/2916138.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -225,7 +225,7 @@
     ],
     "github": "https://github.com/shahinakt/Image_to_text_generator",
     "video": {
-      "src": "/img.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/img.mp4",
       "poster": "/2947690.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -248,7 +248,7 @@
     ],
     "github": "https://github.com/shahinakt/AI_project_builder",
     "video": {
-      "src": "/pr.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/pr.mp4",
       "poster": "/person-working-html-computer.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -270,7 +270,7 @@
     ],
     "github": "https://github.com/shahinakt/Auto_call_rejector_with_smart_response",
     "video": {
-      "src": "/acr.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/acr.mp4",
       "poster": "/woman-using-mobile-while-car.jpg",
       "autoplayPreview": true,
       "muted": true,
@@ -293,7 +293,7 @@
     ],
     "github": "https://github.com/shahinakt/ML_plant_image_classifier",
     "video": {
-      "src": "/plant.mp4",
+      "src": "https://cdn.jsdelivr.net/gh/shahinakt/portfolio-assets/videos/plant.mp4",
       "poster": "/images.jpg",
       "autoplayPreview": true,
       "muted": true,
