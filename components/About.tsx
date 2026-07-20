@@ -18,7 +18,7 @@ const roles = [
   {
     title: 'AI & Machine Learning',
     icon: Brain,
-    description: 'LLMs, NLP, Computer Vision, Transformers'
+    description: 'Computer Vision, Scikit-learn, YOLOv8, Transformers'
   },
   {
     title: 'Cybersecurity',
@@ -33,7 +33,7 @@ const roles = [
   {
     title: 'Prompt Engineering',
     icon: PenTool,
-    description: 'LLM Workflows, OpenAI APIs, AI Automation'
+    description: 'Prompt Design, AI-Assisted Development, AI Productivity'
   }
 ];
 
