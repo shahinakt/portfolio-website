@@ -10,8 +10,6 @@ const skillCategories = [
       'Python',
       'FastAPI',
       'Node.js',
-      'Express.js',
-      'Django',
       'REST APIs',
       'SQLAlchemy',
       'Pydantic',
@@ -79,9 +77,7 @@ const skillCategories = [
       'TensorFlow',
       'Transformers',
       'OpenCV',
-      'LangChain',
       'YOLOv8',
-      'LLM Integration',
       'Prompt Engineering'
     ],
     color: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800'
@@ -103,7 +99,6 @@ const skillCategories = [
     skills: [
       'Git',
       'GitHub',
-      'Docker',
       'CI/CD',
       'AWS',
       'Firebase',
